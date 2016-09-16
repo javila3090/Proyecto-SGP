@@ -1,0 +1,188 @@
+@CHARSET "UTF-8";
+@font-face {
+  font-family: 'Roboto';
+
+  src: url('fonts/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Fredoka';
+
+  src: url('fonts/FredokaOne-Regular.ttf') format('truetype');
+}
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: none;
+        font-style: normal;
+        font-weight:normal;
+        font-family: 'Roboto', sans-serif;  
+}
+
+html{
+    
+	position: relative;
+	min-height: 100%;
+}
+
+body{
+	margin: 0 0 50px; /* bottom = footer height */
+}
+/*FORMULARIOS------------------*/
+
+.login-form {
+        font: 16px/2em;
+	margin: 100px auto;
+	max-width: 400px;
+}
+
+form{
+    top: 20px;
+}
+
+form[role=login] {
+	color: #5d5d5d;
+	background: #fff;
+	padding: 26px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10;
+}
+	form[role=login] img {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 35px;
+	}
+	form[role=login] input,
+	form[role=login] button {
+		font-size: 18px;
+		margin: 16px 0;
+	}
+	form[role=login] > div {
+		text-align: center;
+	}
+	
+.form-links {
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 50px;
+}
+	.form-links a {
+		color: #fff;
+	}
+
+form[role=registro],form[role=consulta]{
+    font-size: 12px;
+}
+
+/*ERRORES---------------------*/
+
+.error{
+    color: red;
+    font:14px Tahoma,sans-serif;
+    font-weight: bold;
+}
+
+form label.error{
+    font:12px Tahoma,sans-serif;
+    color:#ee0101;
+    margin-left:5px;
+    display:inline;
+}
+
+.form-control-error{
+  border-color: #ee0101;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(255,0,0,0.3), 0 0 8px rgba(255,0,0,0.3);
+          box-shadow: inset 0 1px 1px rgba(255,0,0,0.35), 0 0 8px rgba(255,0,0,0.3);
+}
+
+.form-control-error:focus{
+  border-color: #ee0101;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(255,0,0,0.3), 0 0 8px rgba(255,0,0,0.3);
+          box-shadow: inset 0 1px 1px rgba(255,0,0,0.35), 0 0 8px rgba(255,0,0,0.3);
+}
+
+
+/*UTILIDADES-------------------*/
+
+.background{
+    background:url('../images/reclutamiento2.png') no-repeat center;
+}
+.top{
+   margin-top: 4%;
+   
+}
+.title{
+    font-family: 'Fredoka', sans-serif;
+    font-size: 25px;
+}        
+img.transparent {
+ filter:alpha(opacity=30);
+ opacity:.30;
+}
+.table-header{
+   background-color: #337ab7
+}
+
+table{
+    font-size: 12px;
+}
+
+a{
+    cursor: pointer;
+}
+
+.info{
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.mandatory{
+    color:red;
+}
+
+
+/*PIE DE PAGINA----------------*/
+
+footer{
+     text-align: center;
+     font-style:normal;
+     font-size: 11px;
+     background-color: #286090;
+     position: absolute;
+     left: 0;
+     bottom: 0;
+     height: 40px;
+     width: 100%;
+}
+
+/*CUSTOMIZATION BOOSTRAP*/
+
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #007fff;
+    border-color: #285e8e; /*set the color you want here*/
+    font-weight: bold;
+}
+
+.panel-footer {
+  background-color: #f5f5f5;
+  border-top-color: #286090;
+}
+
+.panel-info {
+    border-color: #337ab7;
+}
+
+
+/*.jumbotron{
+  position: absolute;
+  top: 40%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border: 1px solid #285e8e;
+}*/

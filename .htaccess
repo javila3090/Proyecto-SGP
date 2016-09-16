@@ -1,0 +1,23 @@
+# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
+RewriteBase /
+
+DirectoryIndex index.php 
+Options All -Indexes
+
+RewriteEngine on /
+
+RewriteRule ^inicio/$ sgp/vistas/index.php
+RewriteRule ^personas/registro sgp/vistas/registro.php?template=personas
+RewriteRule ^personas/consulta sgp/vistas/consulta.php?template=personas
+RewriteRule ^personas/listado sgp/vistas/listado.php?template=personas
+RewriteRule ^evaluaciones/registro sgp/vistas/registro.php?template=evaluaciones
+RewriteRule ^evaluaciones/consulta sgp/vistas/consulta.php?template=evaluaciones
+RewriteRule ^capacitaciones/registro sgp/vistas/registro.php?template=cursos
+RewriteRule ^capacitaciones/consulta sgp/vistas/consulta.php?template=cursos
+RewriteRule ^capacitaciones/listado sgp/vistas/listado.php?template=cursos
+RewriteRule ^capacitaciones/planificar sgp/vistas/formProgramarCurso.php
+RewriteRule ^usuarios/registro sgp/vistas/registro.php?template=usuarios
+RewriteRule ^usuarios/listado sgp/vistas/listado.php?template=usuarios
+RewriteRule ^usuarios/resetPassword sgp/vistas/formCambioPass.php
+RewriteRule ^bitacora/$ sgp/vistas/listado.php?template=bitacora
+RewriteRule ^cargar/csv sgp/vistas/importarCsv.php
