@@ -23,8 +23,8 @@
             <div class="login-form">
                 <form method="post" action="vistas/validarInicioSesion.php" role="login">
                     <img src="images/personal.png" class="img-responsive"/>
-                    <input type="text" name="usuario" placeholder="Usuario" class="form-control input-lg" />
-                    <input type="password" name="password" placeholder="Contraseña" class="form-control input-lg" />
+                    <input type="text" name="usuario" placeholder="Usuario" class="form-control input-lg" required/>
+                    <input type="password" name="password" placeholder="Contraseña" class="form-control input-lg" required/>
                     <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Entrar</button>
                     <!--<div><a href="mailto:someone@example.com?Subject=Hello%20again" target="_top"><b>¿Olvid&oacute; su contrase&ntilde;a?</b></a></div>-->
                     <?php 

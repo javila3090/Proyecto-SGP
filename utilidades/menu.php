@@ -79,7 +79,8 @@
                             <li><a href="../capacitaciones/registro">Registrar</a></li>
                             <li><a href="../capacitaciones/planificar">Planificar</a></li>
                             <li><a href="../capacitaciones/consulta">Consultar</a></li>
-                            <li><a href="../capacitaciones/listado">Listado</a></li>
+                            <li><a href="../capacitaciones/planificadas">Lista planificados</a></li>
+                            <li><a href="../capacitaciones/culminadas">Lista culminados</a></li>
                         </ul>
                     </li>
                 <?php 

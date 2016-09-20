@@ -25,7 +25,8 @@
         <link rel="stylesheet" type="text/css" href="../css/sweetalert.css" />    
         <script src="../js/jquery-3.0.0.min.js" type="text/javascript"></script>
         <script src="../js/functions.js" type="text/javascript"></script>
-        <script src="../js/sweetalert.min.js" type="text/javascript"></script>    
+        <script src="../js/sweetalert.min.js" type="text/javascript"></script>   
+        <script src="../js/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
         <script src="../lib/DataTables/media/js/jquery.dataTables.js" type="text/javascript"></script>
         <script src="../lib/DataTables/media/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
         <script src="../lib/DataTables/extensions/Buttons/js/dataTables.buttons.js" type="text/javascript"></script>
@@ -48,9 +49,12 @@
                 case 'personas':
                    include 'listadoPersonas.php';
                 break;
-                case 'cursos':
-                   include 'listadoCursos.php';
-                break;              
+                case 'cursosPlanificados':
+                   include 'listadoCursosPlanificados.php';
+                break;     
+                case 'cursosCulminados':
+                   include 'listadoCursosCulminados.php';
+                break;               
                 case 'usuarios':
                    include 'listadoUsuarios.php';
                 break;

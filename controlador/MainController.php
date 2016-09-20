@@ -304,7 +304,7 @@ class MainController {
     function consultaDetallesPlanCurso($id){
         $campos="t1.cedula, t1.nombres, t1.apellidos,t2.nombre, t2.duracion, t3.id_persona, t3.fecha";
         $tabla="personas t1 INNER JOIN programacion_cursos t3 ON t1.id=t3.id_persona INNER JOIN cursos t2 ON t2.id=t3.id_curso";
-        $donde = " WHERE t3.id_curso = ?";
+        $donde = " WHERE t3.id = ?";
         $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'i',array($id),"consultaDetallesPlanCurso");
         if(count($resultado)>0){
             return $resultado;
@@ -380,7 +380,7 @@ class MainController {
         }else{
             $nombre = "%".$nombre."%";
         }
-        $donde = " WHERE nombres LIKE '".$nombre."' or apellidos LIKE '".$nombre."'";
+        $donde = " WHERE (nombres LIKE '".$nombre."' or apellidos LIKE '".$nombre."') AND id_estatus=2";
         $resultado = $this->invoco->Consultar($tabla,$campos,$donde,"buscarPersonas");//echo"Resultado=";print_r($resultado);die;
         if(count($resultado)>0){
             return $resultado;
@@ -496,15 +496,26 @@ class MainController {
     
     //muestra los datos consultados
     function ListarCursosPlanificados(){
-        $campos="t1.id_curso, t1.fecha, t2.nombre, t2.duracion ";
-        $tabla="programacion_cursos t1 INNER JOIN cursos t2 ON t1.id_curso = t2.id GROUP BY t1.fecha";
-        $donde = "";
+        $campos="t1.id, t1.fecha, t2.nombre, t2.duracion ";
+        $tabla="programacion_cursos t1 INNER JOIN cursos t2 ON t1.id_curso = t2.id ";
+        $donde = " WHERE t1.fecha > NOW() GROUP BY t1.fecha";
         $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'','',"ListarCursosPlanificados");
         if(count($resultado)>0){
             return $resultado;
         }
         
     }      
+    
+    //muestra los datos consultados
+    function ListarCursosCulminados(){
+        $campos="t1.id, t1.fecha, t2.nombre, t2.duracion ";
+        $tabla="programacion_cursos t1 INNER JOIN cursos t2 ON t1.id_curso = t2.id ";
+        $donde = " WHERE t1.fecha < NOW() GROUP BY t1.fecha";
+        $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'','',"ListarCursosPlanificados");
+        if(count($resultado)>0){
+            return $resultado;
+        }
+    } 
     
     //muestra los datos consultados
     function ListarPreguntas(){

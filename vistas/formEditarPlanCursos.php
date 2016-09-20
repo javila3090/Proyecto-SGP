@@ -14,13 +14,13 @@
     <link rel="stylesheet" type="text/css" href="../css/estilo.css" />
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui/jquery-ui.theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/sweetalert.css" />    
     <script src="../js/jquery-3.0.0.min.js" type="text/javascript"></script>
     <script src="../js/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
     <script src="../js/functions.js" type="text/javascript"></script>
     <script src="../js/jquery.validate.js" type="text/javascript"></script>
     <script src="../js/jquery.maskedinput.js" type="text/javascript"></script>
     <script src="../js/sweetalert.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="../css/sweetalert.css" />
 </head>
 <?php
     require("../controlador/MainController.php");

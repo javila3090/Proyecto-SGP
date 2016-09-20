@@ -8,7 +8,7 @@
     require("../controlador/MainController.php");
     $actualizar = new MainController();
     $nombre = $_POST['b'];
-    $resultado = $actualizar ->buscarPersonas($nombre);
+    $resultado = $actualizar -> buscarPersonas($nombre);
 
     if($resultado!=0){
         foreach ($resultado as $valor) {

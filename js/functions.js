@@ -549,6 +549,29 @@ jQuery(document).ready(function ($){
         });
     });
     
+    $('.btn-detalle-curso').on('click',function(e){
+        e.preventDefault();
+        var form = $(this).parents('form');
+        var id = $(this).attr('id');
+         //function(isConfirm){
+            //if (isConfirm)   {              
+                $.ajax({
+                    data:  'id='+id,
+                    url:   "../vistas/formDetallesCurso.php",
+                    type:  'POST',
+                    beforeSend: function () {
+                        $("#resultado").html('<img src="../images/ajax-loader.gif"></img> Procesando, por favor espere un momento...');
+                    },
+                    success:  function (response) {
+                        $("#resultado").html(response);
+                        /*setTimeout(function() {
+                        $("#resultado").html(response);}, 500);*/
+                    }
+                });
+            //}
+        //});
+    });    
+    
     $('.btn-delete-evaluacion').on('click',function(e){
         e.preventDefault();
         var form = $(this).parents('form');
