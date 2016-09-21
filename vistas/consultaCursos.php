@@ -8,7 +8,7 @@
 <div class="row">
     <div class="container">
         <div class="page-header">
-            <h3 class="title">Consultar Cursos</h3>
+            <h3 class="title">Consultar Curso</h3>
         </div>
         <form id="consultar">
             <fieldset class="form-group">

@@ -7,46 +7,46 @@
         <link rel="stylesheet" type="text/css" href="../css/estilo_menu.css" media="all" />
         <script src="../js/jquery-3.0.0.min.js" type="text/javascript"></script>
         <script>  
-                    <!--  // building select nav for mobile width only -->
+        <!--  // building select nav for mobile width only -->
             $(function(){
                 // building select menu
                 $('<select />').appendTo('nav');
-            
+                
                 // building an option for select menu
                 $('<option />', {
                     'selected': 'selected',
                     'value' : '',
                     'text': 'Menú'
                 }).appendTo('nav select');
-            
+                
                 $('nav ul li a').each(function(){
                     var target = $(this);
-                
+                    
                     $('<option />', {
                         'value' : target.attr('href'),
                         'text': target.text()
                     }).appendTo('nav select');
-                
+                    
                 });
-            
+                
                 // on clicking on link
                 $('nav select').on('change',function(){
                     window.location = $(this).find('option:selected').val();
                 });
             });
-        
+            
             // show and hide sub menu
             $(function(){
                 $('nav ul li').hover(
-                        function () {
-                            //show its submenu
-                    $('ul', this).slideDown(150);
-                }, 
-                function () {
-                    //hide its submenu
-                    $('ul', this).slideUp(150);			
-                }
-                        );
+                    function () {
+                        //show its submenu
+                        $('ul', this).slideDown(180);
+                    }, 
+                    function () {
+                        //hide its submenu
+                        $('ul', this).slideUp(180);			
+                    }
+                );
             });
             //end
         </script>
@@ -73,14 +73,14 @@
                             <li><a href="../evaluaciones/consulta">Consultar</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Capacitaciones</a>
+                    <li><a href="#">Cursos</a>
                         <ul style="display: none;" class="sub_menu">
                             <li class="arrow_top"></li>
-                            <li><a href="../capacitaciones/registro">Registrar</a></li>
-                            <li><a href="../capacitaciones/planificar">Planificar</a></li>
-                            <li><a href="../capacitaciones/consulta">Consultar</a></li>
-                            <li><a href="../capacitaciones/planificadas">Lista planificados</a></li>
-                            <li><a href="../capacitaciones/culminadas">Lista culminados</a></li>
+                            <li><a href="../cursos/registro">Registrar</a></li>
+                            <li><a href="../cursos/planificar">Planificar</a></li>
+                            <li><a href="../cursos/consulta">Consultar</a></li>
+                            <li><a href="../cursos/planificados">Planificados</a></li>
+                            <li><a href="../cursos/culminados">Culminados</a></li>
                         </ul>
                     </li>
                 <?php 
@@ -98,7 +98,7 @@
                         <?php 
                             if($_SESSION['perm']=='1'){
                                 echo '<li><a href="../bitacora/">Bit&aacute;cora</a></li>';
-                                echo '<li><a href="../cargar/csv">Importar datos</a></li>';
+                                echo '<li><a href="../cargar/archivo">Importar datos</a></li>';
                             }
                         ?>
                         </ul>

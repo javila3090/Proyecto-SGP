@@ -10,13 +10,13 @@
     $consultar = new MainController();
     $resultado = $consultar -> listarPersonas();
 ?>
-<div class="container">
+<div class="container-fluid">
     <div class="page-header">
         <h3 class="title">Listado de personas registradas</h3>
     </div>
     <div id="resultado"></div>
-    <div id="table-user">
-        <table id="listado" class="table table-striped table-bordered table-hover table-responsive" cellspacing="0" width="100%">
+    <div id="table-user ">
+        <table id="listado" class="table table-striped table-bordered table-hover table-responsive " cellspacing="0" width="100%">
             <thead>
                 <tr class="ui-widget-header">
                     <th style="width:auto" align="center"><b>C&eacute;dula</b></th>
@@ -25,11 +25,12 @@
                     <th style="width:auto" align="center"><b>G&eacute;nero</b></th>
                     <th style="width:auto" align="center"><b>Tel&eacute;fono</b></th>                        
                     <th style="width:auto" align="center"><b>Correo</b></th>
-                    <th style="width:30%;" align="center"><b>Direcci&oacute;n</b></th>
+                    <th style="width:auto" align="center"><b>Direcci&oacute;n</b></th>
                     <td style="width:auto" align="center"><b>Estado civil</b></td>                        
                     <th style="width:auto" align="center"><b>Hijos(as)</b></th>
                     <td style="width:auto" align="center"><b>Grupo sangu&iacute;neo</b></td>
                     <td style="width:auto" align="center"><b>Nivel acad&eacute;mico</b></td>
+                    <td style="width:auto" align="center"><b>Estatus</b></td>
                 </tr>
             </thead>
                     <?php
@@ -50,6 +51,7 @@
                                 $persona -> hijos=$valor['hijos'];
                                 $persona -> setTipoSangre($valor['grupo_sangre']);                               
                                 $persona -> setNivelAcademico($valor['nivel_academico']);
+                                $persona -> setEstatus($valor['id_estatus']);
                                 
                                 echo '
                                 <tr>
@@ -64,6 +66,7 @@
                                     <td align="center">'.$persona -> hijos.'</td>
                                     <td align="center">'.$persona -> getTipoSangre().'</td>
                                     <td align="center">'.$persona -> getNivelAcademico().'</td>
+                                    <td align="center">'.$persona -> getEstatus().'</td>
                                 </tr>';
                             }//end foreach
                         }

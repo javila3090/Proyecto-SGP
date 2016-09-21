@@ -43,7 +43,7 @@
         <div class="row">
             <div class="container">
                 <div class="page-header">
-                    <h3 class="title">Programaci&oacute;n de cursos</h3>
+                    <h3 class="title">Planificar curso</h3>
                 </div>
                 <div id="resultado"></div>
                 <form class="col-md-12" id="formProgramarCurso" method="" role="registro">

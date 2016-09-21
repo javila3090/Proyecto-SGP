@@ -6,10 +6,6 @@
      */
 
     include ("../seguridad/seguridad.php");
-    require("../controlador/MainController.php");
-    require("../modelo/Usuario.php");
-    $consultar = new MainController();
-    $resultado = $consultar ->ListarPreguntas();
 ?>
 <div class="container">
     <div class="page-header">
@@ -69,7 +65,7 @@
                 </fieldset>               
                 <fieldset class="form-group">
                     <label class="control-label col-md-2">Tipo<span class="mandatory">*</span></label>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <select class="form-control" id="id_grupo" name="id_grupo" required>
                             <option value=''>Seleccione una opci&oacute;n</option>
                             <option value='1'>Administrador</option>

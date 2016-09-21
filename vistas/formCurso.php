@@ -7,10 +7,10 @@
 ?>
 <div class="container">
     <div class="page-header">
-        <h3 class="title">Registro de capacitaciones</h3>
+        <h3 class="title">Registrar curso</h3>
     </div>
     <div id="resultado"></div>
-    <form class="col-md-10 col-md-offset-1" id="formCrearCurso" method="" role="registro">
+    <form class="col-md-12" id="formCrearCurso" method="" role="registro">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title"><b>Datos del curso</b></h3>
