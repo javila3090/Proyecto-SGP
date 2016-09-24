@@ -53,17 +53,17 @@
                 <td style="width:auto" align="center"><b>Nombre del curso</b></td>
                 <td style="width:auto" align="center"><b>Duraci&oacute;n</b></td>
                 <!--<td style="width:auto" align="center"><b>N&uacute;mero de participantes</b></td>-->
-                <td style="width:10%" align="center" colspan="3"><b>Opciones</b></td>
+                <td style="width:10%" align="center" colspan="5"><b>Opciones</b></td>
                 <td style="width:10%" align="center" colspan="2"><b>Exportar</b></td>
             </tr>
             <?php
             $curso = new Curso();       
             foreach ($resultado as $valor) {
-                $curso -> id =$valor['id_curso'];
+                $curso -> id =$valor['id'];
+                $curso -> id_curso =$valor['id_curso'];
                 $curso -> nombre =$valor['nombre'];
                 $curso -> duracion =$valor['duracion'];
-                $curso -> participantes =$valor['participantes'];
-                $curso ->setFecha($valor['fecha']);
+                $curso -> setFecha($valor['fecha']);
             ?>
             <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $curso -> id; ?>">            
             <tr>
@@ -75,6 +75,8 @@
                 <td align="center"><img title="Ver detalles" id="" onclick="enviarDatos(<?php echo $curso -> id; ?>,'../vistas/formDetallesCurso.php',2);return false;" src="../images/detalles.png" style="cursor: pointer;"></img></td>
                 <td align="center"><img title="Editar" onclick="enviarDatos(<?php echo $curso -> id; ?>,'../vistas/formEditarPlanCursos.php',2);return false;" id="editar" src="../images/editar.png" style="cursor: pointer;"></img></td>
                 <td align="center"><img title="Eliminar" id="<?php echo $curso -> id; ?>" class="btn-delete-plan-curso" src="../images/eliminar.png" style="cursor: pointer;"></img></td>
+                <td align="center"><img title="Agregar participantes" id="<?php echo $curso -> id; ?>" onclick="enviarDatos(<?php echo $curso -> id; ?>,'../vistas/formAddParticipantes.php',2);return false;" src="../images/agregar.png" style="cursor: pointer;"></img></td>
+                <td align="center"><img title="Borrar participantes" id="<?php echo $curso -> id; ?>" onclick="enviarDatos(<?php echo $curso -> id; ?>,'../vistas/formDropParticipantes.php',2);return false;" src="../images/borrar.png" style="cursor: pointer;"></img></td>
                 <td align="center"><img onclick="ExportCursoToPdf(<?php echo $curso -> id; ?>)" title="Descargar en PDF" id="pdf" src="../images/pdf.png" style="cursor: pointer;"/></td>
                 <td align="center"><img onclick="ExportCursoToExcel(<?php echo $curso -> id; ?>)" title="Descargar en Excel" id="pdf" src="../images/excel.png" style="cursor: pointer;"/></td>
             </tr>
@@ -82,8 +84,6 @@
     }
 ?>       
         </table>
-        <br>
-        <div id="resultado"></div>
     </div>
 </div>
 </body>

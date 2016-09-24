@@ -22,9 +22,9 @@
                     <th style="width:10%;" align="center"><b>Fecha</b></th>
                     <th style="width:15%;" align="center"><b>Duraci&oacute;n</b></th>                    
                     <th style="width:auto;" align="center"><b>Curso</b></th>
-                    <th style="width:5%;" align="center"><b>Editar</b></th>
                     <th style="width:10%; text-align: center" align="center"><b>Detalles</b></th>
-                    <!--<th style="width:10%; text-align: center" align="center"><b>Editar</b></th>
+                    <!--<th style="width:5%;" align="center"><b>Editar</b></th>
+                    <th style="width:10%; text-align: center" align="center"><b>Editar</b></th>
                     <th style="width:10%; text-align: center" align="center"><b>Eliminar</b></th>-->
                 </tr>
             </thead>
@@ -45,9 +45,10 @@
                     <td align="center">'.$curso -> getFecha().'</td>                        
                     <td align="center">'.$curso -> duracion.' horas</td>
                     <td align="center">'.$curso -> nombre.'</td>';?>
-                    <td align="center"><img title="Editar" onclick="enviarDatos(<?php echo $curso -> id; ?>,'../vistas/formEditarPlanCursos.php',6);return false;" id="editar" src="../images/editar.png" style="cursor: pointer;"></img></td>                    
                     <td align="center"><img title="Ver detalles" id="" onclick="enviarDatos(<?php echo $curso -> id; ?>,'../vistas/formDetallesCurso.php',6);return false;" src="../images/detalles.png" style="cursor: pointer;"></img></td>
-                    <!--<td align="center"><img title="Editar" onclick="enviarDatos(<?php echo $curso -> id; ?>,'../vistas/formEditarPlanCursos.php',6);return false;" id="editar" src="../images/editar.png" style="cursor: pointer;"></img></td>
+                    <!--<td align="center"><img title="Editar" onclick="enviarDatos(<?php echo $curso -> id; ?>,'../vistas/formEditarPlanCursos.php',6);return false;" id="editar" src="../images/editar.png" style="cursor: pointer;"></img></td>                    
+                    <td align="center"><img title="Ver detalles" id="" onclick="enviarDatos(<?php echo $curso -> id; ?>,'../vistas/formDetallesCurso.php',6);return false;" src="../images/detalles.png" style="cursor: pointer;"></img></td>
+                    <td align="center"><img title="Editar" onclick="enviarDatos(<?php echo $curso -> id; ?>,'../vistas/formEditarPlanCursos.php',6);return false;" id="editar" src="../images/editar.png" style="cursor: pointer;"></img></td>
                     <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $curso -> id; ?>">
                     <td align="center"><img title="Eliminar" id="<?php echo $curso -> id; ?>" class="btn-delete-plan-curso" src="../images/eliminar.png" style="cursor: pointer;"></img></td>
                     <td align="center"><img onclick="ExportCursoToPdf(<?php echo $curso -> id; ?>)" title="Descargar en PDF" id="pdf" src="../images/pdf.png" style="cursor: pointer;"/></td>

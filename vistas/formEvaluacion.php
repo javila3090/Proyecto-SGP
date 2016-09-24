@@ -171,7 +171,7 @@ if($resultado==0){
                                     <button type="submit" class="btn btn-primary btn-block"><b>Registrar</b></button>
                                 </div>
                                 <div class="col-md-6">
-                                    <button type="button" id="cancelar_form_evaluacion" class="btn btn-primary btn-block"><b>Cancelar</b></button>
+                                    <button type="button" id="cancelar" class="btn btn-primary btn-block"><b>Cancelar</b></button>
                                 </div>
                             </fieldset>
                         </div>

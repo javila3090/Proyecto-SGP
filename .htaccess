@@ -14,6 +14,7 @@ RewriteRule ^evaluaciones/registro sgp/vistas/registro.php?template=evaluaciones
 RewriteRule ^evaluaciones/consulta sgp/vistas/consulta.php?template=evaluaciones
 RewriteRule ^cursos/registro sgp/vistas/registro.php?template=cursos
 RewriteRule ^cursos/consulta sgp/vistas/consulta.php?template=cursos
+RewriteRule ^cursos/agregar sgp/vistas/formAddParticipants.php
 RewriteRule ^cursos/planificados sgp/vistas/listado.php?template=cursosPlanificados
 RewriteRule ^cursos/culminados sgp/vistas/listado.php?template=cursosCulminados
 RewriteRule ^cursos/planificar sgp/vistas/formProgramarCurso.php

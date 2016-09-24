@@ -15,7 +15,7 @@
             $id=$valor['id'];
             $nombres=$valor['nombres'];
             $apellidos=$valor['apellidos'];
-			echo "<input type=hidden name='".$id."' value='".$id."'/>";
+            echo "<input type=hidden name='".$id."' value='".$id."'/>";
             echo "<br><div class='col-md-4'>".$nombres." ".$apellidos."</div> <button type='button' value='".$id."' id='".$nombres." ".$apellidos."' class='btn-xs btn-primary'>Añadir</button><br><br>";
         }       
     }

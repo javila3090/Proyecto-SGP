@@ -15,11 +15,12 @@
                 <div class="col-md-3">
                     <input type="text" class="datepicker form-control" name="fechaCurso" id="fechaCurso" placeholder="Introduzca la fecha a consultar" required>
                 </div>
-            <div class="col-md-2">
-                <input type="submit" class="btn btn-primary btn-block" href="javascript:;" onclick="enviarDatos($('#fechaCurso').val(),'../vistas/mostrarCursos.php',3);return false;" value="Buscar"/>
-            </div>
+                <div class="col-md-2">
+                    <input type="submit" class="btn btn-primary btn-block" href="javascript:;" onclick="enviarDatos($('#fechaCurso').val(),'../vistas/mostrarCursos.php',3);return false;" value="Buscar"/>
+                </div>                
             </fieldset>
-        </form>
+        </form
+        <hr>    
     </div>
 </div>
 <div class="row">

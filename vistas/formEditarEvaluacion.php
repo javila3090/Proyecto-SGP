@@ -77,7 +77,7 @@
                     <button type="submit" class="btn btn-primary btn-block"><b>Actualizar</b></button>
                 </div>
                 <div class="col-md-6">
-                    <button type="button" onclick="cancelar_2('#formEditarEvaluacion','#mensaje');" class="btn btn-primary btn-block"><b>Cancelar</b></button>
+                    <button type="button" id="cancelar" class="btn btn-primary btn-block"><b>Cancelar</b></button>
                 </div>
             </fieldset>
         </div>

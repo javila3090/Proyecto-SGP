@@ -91,10 +91,10 @@ class MainController {
     
     function cargarPlanificacionCurso($array){
         $tabla="programacion_cursos";
-        $campos="fecha,id_curso,id_persona";
+        $campos="fecha,id_curso";
         $fecha = date("Y-m-d", strtotime($array['fecha']));
-        $valores ="'".$fecha."',".$array['id_curso'].",".$array['id_persona'];
-        $resultado = $this->invoco->Insertar($campos,$tabla,$valores,"cargarCurso");//echo"Resultado=";print_r($resultado);die;
+        $valores ="'".$fecha."',".$array['id_curso'];
+        $resultado = $this->invoco->Insertar($campos,$tabla,$valores,"cargarPlanificacionCurso");//echo"Resultado=";print_r($resultado);die;
         if(count($resultado)>0){
             $fecha=date("Y-m-d H:i:s");  
             $usuario=$_SESSION['usuario'];
@@ -107,6 +107,24 @@ class MainController {
         }
         
     } 
+    
+    function cargarParticipantesCurso($array){
+        $tabla="participantes_cursos    ";
+        $campos="id_prog_curso,id_persona";
+        $valores ="'".$array['id_prog_curso']."',".$array['id_persona'];
+        $resultado = $this->invoco->Insertar($campos,$tabla,$valores,"cargarParticipantesCurso");//echo"Resultado=";print_r($resultado);die;
+        if(count($resultado)>0){
+            $fecha=date("Y-m-d H:i:s");  
+            $usuario=$_SESSION['usuario'];
+            $accion = "Insertó registro en la tabla ".$tabla." correspondiente a la planificacion del curso: ".$array['id_curso'];
+            $campos="fecha,usuario,accion";
+            $valores="'".$fecha."','".$usuario."','".$accion."'";
+            $tabla="bitacora";
+            $this->invoco_alterno->insertarBitacora($tabla,$campos,$valores,"insertarBitacora");                 
+            return $resultado;
+        }
+        
+    }    
     
     //Actualizar registro
     function actualizarPersona($array){
@@ -226,7 +244,7 @@ class MainController {
         $originalDate = $array['fecha'];
         $fechaCurso = date("Y-m-d", strtotime($originalDate));
         $campos="t1.nombre='".$array['nombreCurso']."',t1.duracion='".$array['duracion']."',t2.fecha='".$fechaCurso."'";
-        $donde ="t1.id=t2.id_curso and t1.id='".$array['id']."'";
+        $donde ="t1.id=t2.id_curso and t2.id='".$array['id']."'";
         $resultado = $this->invoco->Actualizar($tabla,$campos,$donde,"actualizarPlanCurso");//echo"Resultado=";print_r($resultado);die;        
         if(count($resultado)>0){
             $fecha=date("Y-m-d H:i:s");  
@@ -291,10 +309,10 @@ class MainController {
     //muestra los datos consultados
     function consultaPlanCursos($fecha){
         $fechaCurso = date("Y-m-d", strtotime($fecha));
-        $campos="DISTINCT a.nombre,a.duracion,b.id_curso,b.fecha,(SELECT COUNT(*) FROM programacion_cursos where fecha=?) as participantes";
-        $tabla="cursos a INNER JOIN programacion_cursos b";
-        $donde = " ON a.id=b.id_curso WHERE b.fecha = ? and a.estatus = ?";
-        $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'ssi',array($fechaCurso,$fechaCurso,1),"consultaPlanCursos");                
+        $campos="t1.nombre, t1.duracion, t2.id, t2.id_curso, t2.fecha";
+        $tabla="cursos t1 INNER JOIN programacion_cursos t2 ON t1.id=t2.id_curso";
+        $donde = " WHERE t2.fecha = ? and t1.estatus = ?";
+        $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'si',array($fechaCurso,1),"consultaPlanCursos");                
         if(count($resultado)>0){
             return $resultado;
         }    
@@ -302,13 +320,14 @@ class MainController {
     
     //muestra los datos consultados
     function consultaDetallesPlanCurso($id){
-        $campos="t1.cedula, t1.nombres, t1.apellidos,t2.nombre, t2.duracion, t3.id_persona, t3.fecha";
-        $tabla="personas t1 INNER JOIN programacion_cursos t3 ON t1.id=t3.id_persona INNER JOIN cursos t2 ON t2.id=t3.id_curso";
-        $donde = " WHERE t3.id = ?";
-        $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'i',array($id),"consultaDetallesPlanCurso");
+        $fechaCurso = date("Y-m-d", strtotime($fecha));
+        $campos="t1.nombre, t1.duracion, t2.id, t2.id_curso, t2.fecha, t3.id_persona, t4.cedula, t4.nombres,t4.apellidos";
+        $tabla="cursos t1 INNER JOIN programacion_cursos t2 ON t1.id=t2.id_curso LEFT JOIN participantes_cursos t3 ON t2.id=t3.id_prog_curso LEFT JOIN personas t4 ON t4.id=t3.id_persona";
+        $donde = " WHERE t2.id = ?";
+        $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'i',array($id),"consultaPlanCursos");                
         if(count($resultado)>0){
             return $resultado;
-        }      
+        }     
     }
     
     //muestra los datos consultados
@@ -371,8 +390,8 @@ class MainController {
         
     }      
     
-    	//muestra los datos consultados
-    function buscarPersonas($nombre){
+   //muestra los datos consultados
+   function buscarPersonas($nombre){
         $campos="*";
         $tabla="personas";        
         if($nombre == ""){
@@ -426,7 +445,7 @@ class MainController {
         
     //muestra los datos consultados
     function eliminarParticipante($id){
-        $tabla="programacion_cursos";
+        $tabla="participantes_cursos";
         $donde = "id_persona='".$id."'";
         $resultado = $this->invoco->Eliminar($tabla,$donde,"eliminarParticipante");//echo"Resultado=";print_r($resultado);die;
         if(count($resultado)>0){
@@ -445,7 +464,7 @@ class MainController {
     //muestra los datos consultados
     function eliminarPlanCurso($id){
         $tabla="programacion_cursos";
-        $donde = "id_curso='".$id."'";
+        $donde = "id='".$id."'";
         $resultado = $this->invoco->Eliminar($tabla,$donde,"eliminarPlanCurso");//echo"Resultado=";print_r($resultado);die;
         if(count($resultado)>0){
             $fecha=date("Y-m-d H:i:s");  

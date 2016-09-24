@@ -65,7 +65,7 @@
                         <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
                     </div>
                     <div class="col-md-5">
-                        <button type="button" id="" onclick="cancelar('#editCurso','#table-cursos');" class="btn btn-primary btn-block">Cancelar</button>
+                        <button type="button" id="cancelar" class="btn btn-primary btn-block">Cancelar</button>
                     </div>
                 </fieldset>                
             </form>
