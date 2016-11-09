@@ -12,7 +12,7 @@ class Conexion
 
     public function __construct() 
     { 
-        $this->mysqli = new mysqli('127.0.0.1', 'root', 'kaiser3090', 'reclutamiento_y_gestion'); 
+        $this->mysqli = new mysqli('127.0.0.1', 'root', 'kaiser3090', 'sgp'); 
 
         if ( $this->mysqli->connect_error ) 
         { 
