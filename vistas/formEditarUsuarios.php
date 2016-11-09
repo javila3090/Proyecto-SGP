@@ -101,11 +101,11 @@
                 </div>
             </div>
             <fieldset class="form-group col-md-4 col-md-offset-4">
-                <div class="col-md-6">
+                <div class="col-md-6 col-xs-6">
                     <button type="submit" onclick="editarUsuario('../vistas/actualizar.php');return false;" class="btn btn-primary btn-block">Actualizar</button>
                 </div>
-                <div class="col-md-6">
-                    <button type="button" id="cancelar" class="btn btn-primary btn-block">Cancelar</button>
+                <div class="col-md-6 col-xs-6">
+                    <button type="button" id="cancelar" class="btn btn-danger btn-block">Cancelar</button>
                 </div>
             </fieldset>
         </form>

@@ -99,6 +99,9 @@
                         </div>
                     </div> 
                 </form>
+                <div class="col-md-4 col-md-offset-4">
+                    <button type="button" id="cancelar" class="btn btn-primary btn-block">Regresar</button>
+                </div>
             </div>
         </div>
     </body>

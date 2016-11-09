@@ -73,11 +73,11 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <fieldset class="form-group">
-                <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary btn-block"><b>Actualizar</b></button>
+                <div class="col-md-4 col-md-offset-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
                 </div>
-                <div class="col-md-6">
-                    <button type="button" id="cancelar" class="btn btn-primary btn-block"><b>Cancelar</b></button>
+                <div class="col-md-4 col-xs-6">
+                    <button type="button" id="cancelar" class="btn btn-danger btn-block">Cancelar</button>
                 </div>
             </fieldset>
         </div>

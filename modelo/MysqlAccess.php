@@ -50,9 +50,9 @@ class MysqlAccess extends Conexion{
             if($resultado){
                 $resultado="ok";
             }else{
-                  $log = new myLog($metodo);
-                  $log->add($this->mysqli->error);
-                  $resultado="no";
+                $log = new myLog($metodo);
+                $log->add($this->mysqli->error);
+                $resultado="no";
             }
             $this->Cerrar();
             return $resultado;

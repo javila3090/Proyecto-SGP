@@ -18,10 +18,10 @@ class MainController {
     
    function cargarPersonas($array){
         $tabla="personas";
-        $campos="nombres,apellidos,cedula,fnacimiento,telefono,correo,direccion,genero,estado_civil,hijos,grupo_sangre,nivel_academico,id_estatus";
+        $campos="nombres,apellidos,cedula,fnacimiento,telefono,correo,direccion,genero,estado_civil,hijos,grupo_sangre,nivel_academico,id_estatus,fecha_ingreso,cargo";
         $originalDate = $array['fnacimiento'];
         $fnacimiento = date("Y-m-d", strtotime($originalDate));
-        $valores ="'".$array['nombres']."','".$array['apellidos']."',".$array['cedula'].",'".$fnacimiento."','".$array['telefono']."','".$array['correo']."','".$array['direccion']."','".$array['genero']."','".$array['estadoCivil']."','".$array['hijos']."','".$array['grupoSangre']."','".$array['nivelAcademico']."','".$array['estatus']."'";
+        $valores ="'".$array['nombres']."','".$array['apellidos']."',".$array['cedula'].",'".$fnacimiento."','".$array['telefono']."','".$array['correo']."','".$array['direccion']."','".$array['genero']."','".$array['estadoCivil']."','".$array['hijos']."','".$array['grupoSangre']."','".$array['nivelAcademico']."','".$array['estatus']."','".$array['fecha_ingreso']."','".$array['cargo']."'";
         $resultado = $this->invoco->Insertar($campos,$tabla,$valores,"cargarPersonas");//echo"Resultado=";print_r($resultado);die;
         if(count($resultado)>0){
             $fecha=date("Y-m-d H:i:s");  
@@ -130,8 +130,10 @@ class MainController {
     function actualizarPersona($array){
         $tabla="personas";
         $originalDate = $array['fnacimiento'];
+        $originalDatefechaIngreso = $array['fecha_ingreso'];
         $fnacimiento = date("Y-m-d", strtotime($originalDate));
-        $campos="nombres='".$array['nombres']."',apellidos='".$array['apellidos']."',cedula='".$array['cedula']."',fnacimiento='".$fnacimiento."',telefono='".$array['telefono']."',correo='".$array['correo']."',direccion='".$array['direccion']."',genero='".$array['genero']."',grupo_sangre='".$array['grupoSangre']."',estado_civil='".$array['estadoCivil']."',nivel_academico='".$array['nivelAcademico']."',id_estatus='".$array['estatus']."',hijos='".$array['hijos']."'";
+        $fecha_ingreso = date("Y-m-d", strtotime($originalDatefechaIngreso));
+        $campos="nombres='".$array['nombres']."',apellidos='".$array['apellidos']."',cedula='".$array['cedula']."',fnacimiento='".$fnacimiento."',telefono='".$array['telefono']."',correo='".$array['correo']."',direccion='".$array['direccion']."',genero='".$array['genero']."',grupo_sangre='".$array['grupoSangre']."',estado_civil='".$array['estadoCivil']."',nivel_academico='".$array['nivelAcademico']."',id_estatus='".$array['estatus']."',hijos='".$array['hijos']."',id_cargo='".$array['id_cargo']."',fecha_ingreso='".$fecha_ingreso."'";
         $donde ="id='".$array['id']."'";
         $resultado = $this->invoco->Actualizar($tabla,$campos,$donde,"actualizarPersona");//echo"Resultado=";print_r($resultado);die;        
         if(count($resultado)>0){
@@ -261,9 +263,9 @@ class MainController {
     
     //muestra los datos consultados
     function consultaPersonas($cedula){
-        $campos="*";
-        $tabla="personas";
-        $donde = "WHERE cedula=?";
+        $campos="t1.id, t1.nombres, t1.apellidos, t1.cedula, t1.fnacimiento, t1.genero, t1.telefono, t1.correo, t1.direccion, t1.estado_civil, t1.hijos, t1.grupo_sangre, t1.nivel_academico, t1.id_estatus, t1.evaluado, t1.fecha_ingreso, t2.id as id_cargo, t2.nombre as cargo";
+        $tabla="personas t1 LEFT JOIN cargos t2 ON t1.id_cargo = t2.id";
+        $donde = "WHERE t1.cedula=?";
         $resultado = $this->invoco->ConsultaPreparada($tabla,$campos,$donde,'i',array($cedula),"consultaPersonas");//echo"Resultado=";print_r($resultado);die;
         if(count($resultado)>0){
             return $resultado;
@@ -376,18 +378,6 @@ class MainController {
             return $resultado;
         }
         
-    }  
-
-    //muestra los datos consultados
-    function consultaRespuesta($respuesta,$cedula){
-        $campos="*";
-        $tabla="usuarios";
-        $donde = " WHERE cedula = ? and respuesta_preg_seg = ?";
-        $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'is',array($cedula,$respuesta),"consultaRespuesta");
-        if(count($resultado)>0){
-            return $resultado;
-        }
-        
     }      
     
    //muestra los datos consultados
@@ -482,8 +472,41 @@ class MainController {
     function listarPersonas(){
         $campos="*";
         $tabla="personas";
-        $donde = "";
-        $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'','',"listarPersonas");
+        $donde = " WHERE id_estatus = ?";
+        $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'s', '1',"listarPersonas");
+        if(count($resultado)>0){
+            return $resultado;
+        }
+        
+    }
+    
+    function listarEmpleados(){
+        $campos="t1.id, t1.nombres, t1.apellidos, t1.cedula, t1.fnacimiento, t1.genero, t1.telefono, t1.correo, t1.direccion, t1.estado_civil, t1.hijos, t1.grupo_sangre, t1.nivel_academico, t1.id_estatus, t1.evaluado, t1.fecha_ingreso, t2.nombre as cargo";
+        $tabla=" personas t1 LEFT JOIN cargos t2 ON t1.id_cargo = t2.id";
+        $donde = " WHERE t1.id_estatus = ?";
+        $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'s', '2',"listarEmpleados");
+        if(count($resultado)>0){
+            return $resultado;
+        }
+        
+    }
+    
+    function listarCargos(){
+        $campos="*";
+        $tabla="cargos";
+        $donde = " ";
+        $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'', '',"listarCargos");
+        if(count($resultado)>0){
+            return $resultado;
+        }
+        
+    }
+
+    function listarGerencias(){
+        $campos="*";
+        $tabla="gerencias";
+        $donde = " ";
+        $resultado=$this->invoco->ConsultaPreparada($tabla,$campos,$donde,'', '',"listarGerencias");
         if(count($resultado)>0){
             return $resultado;
         }

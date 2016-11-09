@@ -69,11 +69,14 @@
                     </fieldset>                                         
                 </div>
             </div>
-            <fieldset class="form-group col-md-4 col-md-offset-4">
-                <div class="">
-                    <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+            <fieldset class="form-group col-md-8 col-md-offset-2">
+                <div class="col-md-6 col-xs-6">
+                    <button type="submit" id="actualizar" class="btn btn-primary btn-block"><b>Actualizar</b></button>
                 </div>
-            </fieldset>            
+                <div class="col-md-6 col-xs-6">
+                    <button type="button" id="cancelar" class="btn btn-danger btn-block">Cancelar</button>
+                </div>
+            </fieldset>         
         </form>
     </div>   
 </div>

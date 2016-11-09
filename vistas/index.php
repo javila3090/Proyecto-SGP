@@ -29,12 +29,12 @@
             <script src="../js/sweetalert.min.js" type="text/javascript"></script>
     </head>
     <body>
+        <?php 
+            include("../utilidades/menu.php");
+        ?>
         <div class="container-fluid">
             <div class="row">   
                 <div class="col-md-12">
-                <?php 
-                    include("../utilidades/menu.php");
-                ?>
                     <div class="panel panel-info">
                         <div class="panel-body">		
                             <p class="info">Bienvenido(a): <?php echo $_SESSION['nombre']." ".$_SESSION['apellido']; ?></p>

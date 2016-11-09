@@ -1,0 +1,2 @@
+27-09-2016 12:43:39 cargarParticipantesCurso - INSERT INTO participantes_cursos     (id_prog_curso,id_persona) VALUES ('4',7);
+27-09-2016 11:04:11 cargarCurso - INSERT INTO cursos (nombre,duracion,estatus) VALUES ('Oracle',12,1);

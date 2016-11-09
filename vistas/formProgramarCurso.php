@@ -32,14 +32,10 @@
         <script src="../js/sweetalert.min.js" type="text/javascript"></script>  
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="row">   
-                <div class="col-md-12">
-                <?php
-                    include("../utilidades/menu.php");
-                ?>
-                </div>
-            </div>    
+        <?php
+            include("../utilidades/menu.php");
+        ?>       
+        <div class="container-fluid"> 
             <div class="row">
                 <div class="container">
                     <div class="page-header">
@@ -62,16 +58,16 @@
                                     <div class="col-md-8">
                                         <select class="form-control" id="id_curso" name="id_curso">
                                             <option value=''>Seleccione una opci&oacute;n</option>                                   
-                                   <?php
-                                   $curso = new Curso();
-                                   foreach ($resultado as $valor) {
-                                        $curso -> id=$valor['id'];
-                                        $curso -> nombre=$valor['nombre'];
-                                        ?>
-                                            <option value='<?php echo $curso -> id; ?>'><?php echo $curso -> nombre; ?></option>                                        
-                                    <?php
-                                    }
-                                    ?>
+                                            <?php
+                                            $curso = new Curso();
+                                            foreach ($resultado as $valor) {
+                                                 $curso -> id=$valor['id'];
+                                                 $curso -> nombre=$valor['nombre'];
+                                                 ?>
+                                                     <option value='<?php echo $curso -> id; ?>'><?php echo $curso -> nombre; ?></option>                                        
+                                             <?php
+                                             }
+                                            ?>
                                         </select>
                                     </div>
                                 </fieldset>
@@ -109,7 +105,7 @@
                             </div>
                         </div>   -->                 
                         <fieldset class="form-group">
-                            <div class="form-group col-md-4 col-md-offset-4">
+                            <div class="form-group col-md-4 col-md-offset-4 col-xs-4 col-xs-offset-4">
                                 <button type="submit" class="btn btn-primary btn-block">Planificar</button>
                             </div>
                         </fieldset>

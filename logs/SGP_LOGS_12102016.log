@@ -1,0 +1,1 @@
+12-10-2016 01:36:06 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-10-14',3);

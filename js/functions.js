@@ -1,6 +1,6 @@
 //ARCHIVO QUE CONTIENE LAS FUNCIONES JS Y JQUERY APLICADAS EN EL PORTAL
 
-$.noConflict();
+//$.noConflict();
 
 jQuery(document).ready(function ($){    
     
@@ -150,7 +150,9 @@ jQuery(document).ready(function ($){
             documentos: { required:true},
             estatus: { required:true},
             nivelAcademico: { required:true},
-            hijos: { number: true}
+            hijos: { number: true},
+            cargo: { required:true},
+            fecha_ingreso: { required:true}
         },
         messages: {
             nombres: {required: "<b>Este campo es requerido</b>", minlength: "<b>Introduzca al menos dos car&aacute;cteres</b>"},
@@ -163,10 +165,12 @@ jQuery(document).ready(function ($){
             genero :"<b>Este campo es requerido</b>",
             estatus : "<b>Este campo es requerido</b>",
             nivelAcademico : "<b>Este campo es requerido</b>",
-            hijos: { number: "<b>Solo n&uacute;meros</b>"}
+            hijos: { number: "<b>Solo n&uacute;meros</b>"},
+            cargo : "<b>Este campo es requerido</b>",
+            fecha_ingreso : "<b>Este campo es requerido</b>"
         },
         submitHandler: function(form){
-            var dataString = 'nombres='+$('#nombres').val()+'&apellidos='+$('#apellidos').val()+'&cedula='+$('#cedula').val()+'&fnacimiento='+$('#fnacimiento').val()+'&correo='+$('#correo').val()+'&telefono='+$('#telefono').val()+'&direccion='+$('#direccion').val()+'&genero='+$('#genero').val()+'&estadoCivil='+$('#estadoCivil').val()+'&grupoSangre='+$('#grupoSangre').val()+'&nivelAcademico='+$('#nivelAcademico').val()+'&estatus='+$('#estatus').val()+'&hijos='+$('#hijos').val()+'&metodo=cargarPersonas&tipo=2';
+            var dataString = 'nombres='+$('#nombres').val()+'&apellidos='+$('#apellidos').val()+'&cedula='+$('#cedula').val()+'&fnacimiento='+$('#fnacimiento').val()+'&correo='+$('#correo').val()+'&telefono='+$('#telefono').val()+'&direccion='+$('#direccion').val()+'&genero='+$('#genero').val()+'&estadoCivil='+$('#estadoCivil').val()+'&grupoSangre='+$('#grupoSangre').val()+'&nivelAcademico='+$('#nivelAcademico').val()+'&estatus='+$('#estatus').val()+'&hijos='+$('#hijos').val()+'&cargo='+$('#cargo').val()+'&fecha_ingreso='+$('#fecha_ingreso').val()+'&metodo=cargarPersonas&tipo=2';
             $.ajax({
                 type: "POST",
                 url: "../vistas/guardar.php",
@@ -205,7 +209,7 @@ jQuery(document).ready(function ($){
             nivelAcademico : "<b>Este campo es requerido</b>"
         },
         submitHandler: function(form){
-            var dataString = 'id='+$('#id').val()+'&nombres='+$('#nombres').val()+'&apellidos='+$('#apellidos').val()+'&cedula='+$('#cedula').val()+'&fnacimiento='+$('#fnacimiento').val()+'&correo='+$('#correo').val()+'&telefono='+$('#telefono').val()+'&direccion='+$('#direccion').val()+'&genero='+$('#genero').val()+'&documentos='+$('#documentos').val()+'&grupoSangre='+$('#grupoSangre').val()+'&estadoCivil='+$('#estadoCivil').val()+'&nivelAcademico='+$('#nivelAcademico').val()+'&estatus='+$('#estatus').val()+'&hijos='+$('#hijos').val()+'&metodo=actualizarPersona&tipo=1';
+            var dataString = 'id='+$('#id').val()+'&nombres='+$('#nombres').val()+'&apellidos='+$('#apellidos').val()+'&cedula='+$('#cedula').val()+'&fnacimiento='+$('#fnacimiento').val()+'&correo='+$('#correo').val()+'&telefono='+$('#telefono').val()+'&direccion='+$('#direccion').val()+'&genero='+$('#genero').val()+'&documentos='+$('#documentos').val()+'&grupoSangre='+$('#grupoSangre').val()+'&estadoCivil='+$('#estadoCivil').val()+'&nivelAcademico='+$('#nivelAcademico').val()+'&estatus='+$('#estatus').val()+'&hijos='+$('#hijos').val()+'&id_cargo='+$('#id_cargo').val()+'&fecha_ingreso='+$('#fechaIngresoEditar').val()+'&metodo=actualizarPersona&tipo=1';
             $.ajax({
                 type: "POST",
                 url: "../vistas/actualizar.php",
@@ -216,8 +220,9 @@ jQuery(document).ready(function ($){
                     $("#validacion").empty();
                     if ( $("#tabla-persona").length > 0 ) {
                         $("#tabla-persona").show();
-                    }
+                    } 
                     setTimeout(function() {window.location.reload();}, 4000);
+                    
                 }
             });
         }
@@ -626,7 +631,34 @@ jQuery(document).ready(function ($){
                 });
             }
         });
-    });
+    });  
+    
+    //Activar Selects Fecha_ingreso & Cargo en formulario Personas
+    $("#estatus").on("change", function() {
+        var valor = $("#estatus").val();
+        if (valor === "2" || valor === true) {
+            $("#cargoBox").show();
+            $("#fechaIngresoBox").show();
+            $("#cargo").attr('disabled', false);
+            $("#fecha_ingreso").attr('disabled', false);
+        } else if (valor === "1" || valor === false) {
+        // deshabilitamos
+            $("#cargoBox").hide();
+            $("#fechaIngresoBox").hide();
+            $("#cargo").attr('disabled', true);
+            $("#fecha_ingreso").attr('disabled', true);
+            $("#cargo").val("");
+            $("#fecha_ingreso").val("");
+        } else if (valor === "3" || valor === false) {
+        // deshabilitamos
+            $("#cargoBox").hide();
+            $("#fechaIngresoBox").hide();
+            $("#cargo").attr('disabled', true);
+            $("#fecha_ingreso").attr('disabled', true);
+            $("#cargo").val("");
+            $("#fecha_ingreso").val("");
+        }
+    });    
     
     //***BOTONES
     
@@ -717,6 +749,16 @@ jQuery(document).ready(function ($){
             changeYear: true,
             dateFormat: "dd-mm-yy"
         }); 
+        $( "#fecha_ingreso" ).datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "dd-mm-yy"
+        });     
+        $( "#fechaIngresoEditar" ).datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "dd-mm-yy"
+        }); 
     });
     
     // ESTABLECER PLACEHOLDER/MASK INPUTS FECHA - TELEFONO
@@ -727,6 +769,8 @@ jQuery(document).ready(function ($){
     $('#fechaCurso').mask("99-99-9999", {placeholder: 'dd-mm-aaaa' });
     
     $('#fechaCursoPlan').mask("99-99-9999", {placeholder: 'dd-mm-aaaa' });
+    
+    $('#fecha_ingreso').mask("99-99-9999", {placeholder: 'dd-mm-aaaa' });
     
     // VALIDACIONES EN VIVO 
     $('#cedula').focusout(function(){

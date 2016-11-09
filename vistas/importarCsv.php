@@ -45,7 +45,7 @@
                     </fieldset> 
                     <br/>
                     <fieldset>
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-xs-6">
                             <input type="submit" class="btn btn-primary btn-block" href="javascript:;" onclick="enviarDatos($('#archivo').val(),'importarCsv.php',4);return false;" value="Cargar"/>
                         </div>
                     </fieldset>

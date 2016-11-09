@@ -16,7 +16,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery-ui/jquery-ui.min.css" />
         <link rel="stylesheet" type="text/css" href="css/estilo.css" />
-        <script src="js/jquery-3.0.0.min.js" type="text/javascript"></script>
+        <script src="js/jquery.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container">
@@ -30,8 +30,9 @@
                     <?php 
                     if (isset($_SESSION['error'])){
                     ?>
-                    <div class="ui-state-error ui-corner-all error">
-                        <span class="ui-icon ui-icon-alert" style="margin-left: 0.3em"></span>
+                    <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span>
                             <?php
                             echo '<p>'.$_SESSION['error'].'</p>';
                             unset($_SESSION['error']);

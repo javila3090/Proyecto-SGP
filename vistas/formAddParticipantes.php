@@ -93,7 +93,7 @@
                     </fieldset> 
                 </div>
             </div>
-            <fieldset class="form-group col-md-4 col-md-offset-4">
+            <fieldset class="form-group col-md-4 col-md-offset-4 col-xs-4 col-xs-offset-4">
                 <div class="">
                     <button type="submit" class="btn btn-primary btn-block">A&ntilde;adir</button>
                 </div>

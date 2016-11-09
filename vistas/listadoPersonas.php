@@ -4,18 +4,19 @@
      * Version 1.0
      * @author Ing. Julio Avila
      */
-
+         
     require("../controlador/MainController.php");
     require("../modelo/Persona.php");
     $consultar = new MainController();
+    $template=$_GET['template'];
     $resultado = $consultar -> listarPersonas();
 ?>
-<div class="container-fluid">
-    <div class="page-header">
-        <h3 class="title">Listado de personas registradas</h3>
-    </div>
+<div class="container">
     <div id="tabla-persona">
-        <table id="listado" class="table table-striped table-bordered table-hover table-responsive " cellspacing="0" width="100%">
+        <div class="page-header">
+            <h3 class="title">Listado de aspirantes</h3>
+        </div>
+        <table id="listado" class="table table-striped table-bordered table-hover table-responsive " cellspacing="0" width="">
             <thead>
                 <tr class="ui-widget-header">
                     <th style="width:auto" align="center"><b>C&eacute;dula</b></th>
@@ -36,7 +37,7 @@
                     <?php
                         if($resultado!=0){
                             $persona = new Persona();
-                            
+                                
                             foreach ($resultado as $valor) {
                                 $persona -> id=$valor['id'];
                                 $persona -> nombres=$valor['nombres'];
@@ -52,7 +53,7 @@
                                 $persona -> setTipoSangre($valor['grupo_sangre']);                               
                                 $persona -> setNivelAcademico($valor['nivel_academico']);
                                 $persona -> setEstatus($valor['id_estatus']);
-                                
+                                    
                                 echo '
                                 <tr>
                                     <td align="center">'.$persona -> cedula.'</td>
@@ -65,8 +66,8 @@
                                     <td align="center">'.$persona -> getEstadoCivil().'</td>                                            
                                     <td align="center">'.$persona -> getNivelAcademico().'</td>
                                     <td align="center">'.$persona -> getEstatus().'</td>';?>
-                                    <td align="center"><img title="Editar" id="" onclick="enviarDatos('<?php echo $persona -> cedula; ?>','../vistas/formEditarPersona.php',8);return false;" src="../images/editar.png" style="cursor: pointer;"></img></td>
-                                </tr>
+            <td align="center"><img title="Editar" id="" onclick="enviarDatos('<?php echo $persona -> cedula; ?>','../vistas/formEditarPersona.php',8);return false;" src="../images/editar.png" style="cursor: pointer;"></img></td>
+            </tr>
                     <?php
                             }//end foreach
                         }

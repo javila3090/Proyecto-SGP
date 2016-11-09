@@ -7,14 +7,17 @@ Options All -Indexes
 RewriteEngine on /
 
 RewriteRule ^inicio/$ sgp/vistas/index.php
-RewriteRule ^personas/registro sgp/vistas/registro.php?template=personas
-RewriteRule ^personas/consulta sgp/vistas/consulta.php?template=personas
-RewriteRule ^personas/listado sgp/vistas/listado.php?template=personas
+RewriteRule ^aspirantes/registro sgp/vistas/registro.php?template=personas
+RewriteRule ^aspirantes/consulta sgp/vistas/consulta.php?template=personas
+RewriteRule ^aspirantes/listado sgp/vistas/listado.php?template=aspirantes
+RewriteRule ^empleados/registro sgp/vistas/registro.php?template=personas
+RewriteRule ^empleados/consulta sgp/vistas/listado.php?template=empleados
 RewriteRule ^evaluaciones/registro sgp/vistas/registro.php?template=evaluaciones
 RewriteRule ^evaluaciones/consulta sgp/vistas/consulta.php?template=evaluaciones
 RewriteRule ^cursos/registro sgp/vistas/registro.php?template=cursos
 RewriteRule ^cursos/consulta sgp/vistas/consulta.php?template=cursos
 RewriteRule ^cursos/agregar sgp/vistas/formAddParticipants.php
+RewriteRule ^cursos/editar sgp/vistas/listado.php?template=listadoCursos
 RewriteRule ^cursos/planificados sgp/vistas/listado.php?template=cursosPlanificados
 RewriteRule ^cursos/culminados sgp/vistas/listado.php?template=cursosCulminados
 RewriteRule ^cursos/planificar sgp/vistas/formProgramarCurso.php
@@ -23,3 +26,4 @@ RewriteRule ^usuarios/listado sgp/vistas/listado.php?template=usuarios
 RewriteRule ^usuarios/resetPassword sgp/vistas/formCambioPass.php
 RewriteRule ^bitacora/$ sgp/vistas/listado.php?template=bitacora
 RewriteRule ^cargar/archivo sgp/vistas/importarCsv.php
+RewriteRule ^gestion/cargos sgp/vistas/registro.php?template=cargos

@@ -18,7 +18,7 @@
             <div class="panel-body"> 
                 <fieldset class="form-group">
                     <div class="">
-                        <p class="info" style="text-align: left;"><b>Campos marcados con <span class="mandatory">*</span> son obligatorios</b></p>
+                        <p style="text-align: left;"><b>Campos marcados con <span class="mandatory">*</span> son obligatorios</b></p>
                     </div>
                 </fieldset>
                 <fieldset class="form-group">
@@ -35,7 +35,7 @@
                 </fieldset>                                          
             </div>
         </div>
-        <fieldset class="form-group col-md-4 col-md-offset-4">
+        <fieldset class="form-group col-md-4 col-md-offset-4 col-xs-4 col-xs-offset-4">
             <div class="">
                 <button type="submit" class="btn btn-primary btn-block">Registrar</button>
             </div>

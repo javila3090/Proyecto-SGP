@@ -58,7 +58,7 @@
                                 <td align="center">'.$usuario -> getEstatus().'</td>';?>
                                 <td align="center"><img title="Editar" id="editarUser" onclick="enviarDatos('<?php echo $usuario -> id; ?>','../vistas/formEditarUsuarios.php',7);return false;" src="../images/editar.png" style="cursor: pointer;"></img></td>
                                 <td align="center"><img title="Desactivar" class="btn-reset-password" id="<?php echo $usuario -> id; ?>" src="../images/reset.png" style="cursor: pointer;"></img></td>
-            </tr>
+                            </tr>
                 <?php       
                         }//end foreach
                     }

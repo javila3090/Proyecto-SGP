@@ -35,20 +35,22 @@
         <script src="../lib/DataTables/extensions/Buttons/js/buttons.html5.min.js" type="text/javascript"></script> 
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="row">   
-                <div class="col-md-12">
-                <?php
-                    include("../utilidades/menu.php");
-                ?>
-                </div>
-            </div>
+        <?php
+            include("../utilidades/menu.php");
+        ?>
+        <div class="container">
             <div class="row">
             <?php 
             switch ($template){
-                case 'personas':
+                case 'aspirantes':
                    include 'listadoPersonas.php';
                 break;
+                case 'empleados':
+                   include 'listadoEmpleados.php';
+                break;            
+                case 'listadoCursos':
+                   include 'listadoCursos.php';
+                break;             
                 case 'cursosPlanificados':
                    include 'listadoCursosPlanificados.php';
                 break;     

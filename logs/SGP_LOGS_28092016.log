@@ -1,0 +1,5 @@
+28-09-2016 03:03:50 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-05',1);
+28-09-2016 03:04:01 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-30',3);
+28-09-2016 03:04:34 cargarParticipantesCurso - INSERT INTO participantes_cursos     (id_prog_curso,id_persona) VALUES ('6',7);
+28-09-2016 10:35:57 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-26',6);
+28-09-2016 10:45:27 cargarEvaluacion - INSERT INTO evaluaciones (id_persona,prueba_tecnica,prueba_psico,observaciones_psico,documentos,comentarios) VALUES (1,'1','1','Aprobado','1','Sin observaciones');
