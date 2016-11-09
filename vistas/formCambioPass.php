@@ -27,43 +27,39 @@
     <script src="../js/sweetalert.min.js" type="text/javascript"></script>
 </head>
 <body>
-   <div class="container-fluid">
-        <div class="row">   
-            <div class="col-md-12">
-                <?php
-                    include("../utilidades/menu.php");
-                ?>
-            </div>
-        </div>    
+    <?php
+        include("../utilidades/menu.php");
+     ?>
+   <div class="container-fluid">   
         <div class="row">
             <div class="container">
                 <div class="page-header">
                     <h3 class="title">Cambiar contrase&ntilde;a de usuario</h3>
                 </div>
                 <div id="resultado"></div>
-                <form class="col-md-10 col-md-offset-1" id="formCambioPass" method="" role="registro">
+                <form class="col-md-12" id="formCambioPass" method="" role="registro">
                 <div class="panel panel-default">
                     <div class="panel-body"> 
                         <fieldset class="form-group">
                             <div class="col-md-6">
-                                <p class="info" style="text-align: left;"><b>Campos marcados con <span class="mandatory">*</span> son obligatorios</b></p>
+                                <p style="text-align: left;"><b>Campos marcados con <span class="mandatory">*</span> son obligatorios</b></p>
                             </div>
                         </fieldset>
                         <fieldset class="form-group">
-                            <label class="control-label col-md-2">Contrase&ntilde;a actual<span class="mandatory">*</span></label>
+                            <label class="control-label col-md-3">Contrase&ntilde;a actual<span class="mandatory">*</span></label>
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="passwordActual" id="passwordActual">
                             </div>
                             <div id="validacion"></div>
                         </fieldset>
                         <fieldset class="form-group">
-                            <label class="control-label col-md-2">Nueva contrase&ntilde;a<span class="mandatory">*</span></label>
+                            <label class="control-label col-md-3">Nueva contrase&ntilde;a<span class="mandatory">*</span></label>
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="passwordNuevo" id="passwordNuevo">
                             </div>
                         </fieldset>
                         <fieldset class="form-group">
-                            <label class="control-label col-md-2">Repita nueva contrase&ntilde;a<span class="mandatory">*</span></label>
+                            <label class="control-label col-md-3">Repita nueva contrase&ntilde;a<span class="mandatory">*</span></label>
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="passwordNuevo2" id="passwordNuevo2">
                             </div>
@@ -71,9 +67,9 @@
                     </div>
                 </div>
 
-                <fieldset class="form-group col-md-4 col-md-offset-4">
+                <fieldset class="form-group col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3">
                     <div class="">
-                        <button type="submit" class="btn btn-primary btn-block"><b>Cambiar</b></button>
+                        <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
                     </div>
                 </fieldset>
             </form>

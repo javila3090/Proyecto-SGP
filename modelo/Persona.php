@@ -20,6 +20,9 @@ class Persona {
     private $nivel_academico;
     private $estatus;
     private $evaluado;
+    private $cargo;
+    private $id_cargo;
+    private $fecha_ingreso;
     
     public function __construct(){
 
@@ -57,6 +60,17 @@ class Persona {
     public function getFechaNacimiento()
     {
         return $this->fnacimiento;
+    }
+    
+    public function setFechaIngreso($fecha_ingreso)
+    {
+        $fecha_ingreso = date("d-m-Y", strtotime($fecha_ingreso));
+        $this->fecha_ingreso = $fecha_ingreso;
+    }
+    
+    public function getFechaIngreso()
+    {
+        return $this->fecha_ingreso;
     }
     
     public function setGenero($genero)

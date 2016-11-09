@@ -3,26 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/sgp/js/functions.js</file>
-            <file>file:/C:/xampp/htdocs/sgp/modelo/Curso.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/vistas/busquedaInstantanea.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/css/jquery-ui/jquery-ui.theme.min.css</file>
-            <file>file:/C:/xampp/htdocs/sgp/vistas/formEditarPlanCursos.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/vistas/formDetallesPersona.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/vistas/consulta.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/modelo/MysqlAccess.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/vistas/listadoCursosCulminados.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/vistas/listadoCursosPlanificados.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/vistas/listado.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/controlador/MainController.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/.htaccess</file>
-            <file>file:/C:/xampp/htdocs/sgp/vistas/formDetallesCurso.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/vistas/eliminar.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/index.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/utilidades/menu.php</file>
+            <file>file:/C:/xampp/htdocs/sgp/vistas/formEditarPersona.php</file>
             <file>file:/C:/xampp/htdocs/sgp/vistas/formPersona.php</file>
-            <file>file:/C:/xampp/htdocs/sgp/css/estilo_menu.css</file>
-            <file>file:/C:/xampp/htdocs/sgp/vistas/consultaPersona.php</file>
+            <file>file:/C:/xampp/htdocs/sgp/js/functions.js</file>
+            <file>file:/C:/xampp/htdocs/sgp/vistas/listadoPersonas.php</file>
         </group>
     </open-files>
 </project-private>

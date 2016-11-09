@@ -12,10 +12,10 @@
         </div>
         <form id="consultar">
             <fieldset class="form-group">
-                <div class="col-md-3">
+                <div class="col-md-3 col-xs-12">
                     <input type="text" class="form-control" name="cedula" id="cedulaConsulta" placeholder="Introduzca cédula" required>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 col-xs-12">
                     <input type="submit" class="btn btn-primary btn-block" href="javascript:;" onclick="enviarDatos($('#cedulaConsulta').val(),'../vistas/mostrarEvaluacion.php',1);return false;" value="Buscar"/>
                 </div>
             </fieldset>

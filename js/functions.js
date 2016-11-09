@@ -1,6 +1,6 @@
 //ARCHIVO QUE CONTIENE LAS FUNCIONES JS Y JQUERY APLICADAS EN EL PORTAL
 
-$.noConflict();
+//$.noConflict();
 
 jQuery(document).ready(function ($){    
     
@@ -96,7 +96,7 @@ jQuery(document).ready(function ($){
     
     
     //Validando el form Editar Usuario	
-    $("#formEditarUsuario1").validate({		
+    $("#formEditarUsuario").validate({		
         rules: {
             nombres: { required: true, minlength: 2},
             apellidos: { required: true, minlength: 2},
@@ -106,7 +106,7 @@ jQuery(document).ready(function ($){
             id_grupo: { required:true}
         },
         messages: {
-            nombres: "<b>Este campo es requerido</b>",
+            nombres: {required: "<b>Este campo es requerido</b>"},
             apellidos: "<b>Este campo es requerido</b>",
             correo : {required: "<b>Este campo es requerido</b>", email:"<b>Introduzca una direcci&oacute;n de correo electr&oacute;nico v&aacute;lida</b>"},
             cedulaUser : "<b>Este campo es requerido</b>",
@@ -114,10 +114,10 @@ jQuery(document).ready(function ($){
             id_grupo :"<b>Este campo es requerido</b>"
         },
         submitHandler: function(form){
-            var dataString = 'id='+$('#id').val()+'nombres='+$('#nombres').val()+'&apellidos='+$('#apellidos').val()+'&cedula='+$('#cedulaUser').val()+'&correo='+$('#correo').val()+'&username='+$('#username').val()+'&id_grupo='+$('#id_grupo').val();
+            var dataString = 'id='+$('#id').val()+'nombres='+$('#nombres').val()+'&apellidos='+$('#apellidos').val()+'&cedula='+$('#cedulaUser').val()+'&correo='+$('#correo').val()+'&username='+$('#username').val()+'&id_grupo='+$('#id_grupo').val()+'&metodo=actualizarUsuario&tipo=1';;
             $.ajax({
                 type: "POST",
-                url: "../vistas/actualizarUsuario.php",
+                url: "../vistas/actualizar.php",
                 data: dataString,
                 success: function(responseText){
                     $("#resultado").html(responseText);
@@ -150,7 +150,9 @@ jQuery(document).ready(function ($){
             documentos: { required:true},
             estatus: { required:true},
             nivelAcademico: { required:true},
-            hijos: { number: true}
+            hijos: { number: true},
+            cargo: { required:true},
+            fecha_ingreso: { required:true}
         },
         messages: {
             nombres: {required: "<b>Este campo es requerido</b>", minlength: "<b>Introduzca al menos dos car&aacute;cteres</b>"},
@@ -163,10 +165,12 @@ jQuery(document).ready(function ($){
             genero :"<b>Este campo es requerido</b>",
             estatus : "<b>Este campo es requerido</b>",
             nivelAcademico : "<b>Este campo es requerido</b>",
-            hijos: { number: "<b>Solo n&uacute;meros</b>"}
+            hijos: { number: "<b>Solo n&uacute;meros</b>"},
+            cargo : "<b>Este campo es requerido</b>",
+            fecha_ingreso : "<b>Este campo es requerido</b>"
         },
         submitHandler: function(form){
-            var dataString = 'nombres='+$('#nombres').val()+'&apellidos='+$('#apellidos').val()+'&cedula='+$('#cedula').val()+'&fnacimiento='+$('#fnacimiento').val()+'&correo='+$('#correo').val()+'&telefono='+$('#telefono').val()+'&direccion='+$('#direccion').val()+'&genero='+$('#genero').val()+'&estadoCivil='+$('#estadoCivil').val()+'&grupoSangre='+$('#grupoSangre').val()+'&nivelAcademico='+$('#nivelAcademico').val()+'&estatus='+$('#estatus').val()+'&hijos='+$('#hijos').val()+'&metodo=cargarPersonas&tipo=2';
+            var dataString = 'nombres='+$('#nombres').val()+'&apellidos='+$('#apellidos').val()+'&cedula='+$('#cedula').val()+'&fnacimiento='+$('#fnacimiento').val()+'&correo='+$('#correo').val()+'&telefono='+$('#telefono').val()+'&direccion='+$('#direccion').val()+'&genero='+$('#genero').val()+'&estadoCivil='+$('#estadoCivil').val()+'&grupoSangre='+$('#grupoSangre').val()+'&nivelAcademico='+$('#nivelAcademico').val()+'&estatus='+$('#estatus').val()+'&hijos='+$('#hijos').val()+'&cargo='+$('#cargo').val()+'&fecha_ingreso='+$('#fecha_ingreso').val()+'&metodo=cargarPersonas&tipo=2';
             $.ajax({
                 type: "POST",
                 url: "../vistas/guardar.php",
@@ -205,7 +209,7 @@ jQuery(document).ready(function ($){
             nivelAcademico : "<b>Este campo es requerido</b>"
         },
         submitHandler: function(form){
-            var dataString = 'id='+$('#id').val()+'&nombres='+$('#nombres').val()+'&apellidos='+$('#apellidos').val()+'&cedula='+$('#cedula').val()+'&fnacimiento='+$('#fnacimiento').val()+'&correo='+$('#correo').val()+'&telefono='+$('#telefono').val()+'&direccion='+$('#direccion').val()+'&genero='+$('#genero').val()+'&documentos='+$('#documentos').val()+'&grupoSangre='+$('#grupoSangre').val()+'&estadoCivil='+$('#estadoCivil').val()+'&nivelAcademico='+$('#nivelAcademico').val()+'&estatus='+$('#estatus').val()+'&hijos='+$('#hijos').val()+'&metodo=actualizarPersona&tipo=1';
+            var dataString = 'id='+$('#id').val()+'&nombres='+$('#nombres').val()+'&apellidos='+$('#apellidos').val()+'&cedula='+$('#cedula').val()+'&fnacimiento='+$('#fnacimiento').val()+'&correo='+$('#correo').val()+'&telefono='+$('#telefono').val()+'&direccion='+$('#direccion').val()+'&genero='+$('#genero').val()+'&documentos='+$('#documentos').val()+'&grupoSangre='+$('#grupoSangre').val()+'&estadoCivil='+$('#estadoCivil').val()+'&nivelAcademico='+$('#nivelAcademico').val()+'&estatus='+$('#estatus').val()+'&hijos='+$('#hijos').val()+'&id_cargo='+$('#id_cargo').val()+'&fecha_ingreso='+$('#fechaIngresoEditar').val()+'&metodo=actualizarPersona&tipo=1';
             $.ajax({
                 type: "POST",
                 url: "../vistas/actualizar.php",
@@ -214,6 +218,11 @@ jQuery(document).ready(function ($){
                     $("#resultado").html(responseText);
                     $("#formEditarPersona").hide();
                     $("#validacion").empty();
+                    if ( $("#tabla-persona").length > 0 ) {
+                        $("#tabla-persona").show();
+                    } 
+                    setTimeout(function() {window.location.reload();}, 4000);
+                    
                 }
             });
         }
@@ -425,18 +434,43 @@ jQuery(document).ready(function ($){
     $("#formProgramarCurso").validate({
         rules: {
             id_curso: { required: true},
-            fecha: { required: true},
+            fecha: { required: true}
+        },
+        messages: {
+            id_curso: { required: "<b>Este campo es requerido</b>"},
+            fecha: { required: "<b>Este campo es requerido</b>"}
+        },
+        submitHandler: function(form){
+            //$(".participante").each(function() {
+            //var id_persona = $(this).val();
+            var dataString = 'fecha='+$('#fecha').val()+'&id_curso='+$('#id_curso').val()+'&metodo=cargarPlanificacionCurso&tipo=3';  		
+            $.ajax({
+                type: "POST",
+                url: "../vistas/guardar.php",
+                data: dataString,
+                success: function(responseText){
+                    $("#resultado").html(responseText);
+                    $("#formProgramarCurso")[0].reset();                           
+                }
+            });
+            //});
+        }
+    });
+    
+    //Validando formulario para planificar cursos
+    $("#formParticipantesCurso").validate({
+        rules: {
+            id_curso: { required: true},
             id_persona:{ required: true}
         },
         messages: {
             id_curso: { required: "<b>Este campo es requerido</b>"},
-            fecha: { required: "<b>Este campo es requerido</b>"},
             id_persona: { required: "<b>Este campo es requerido</b>"}
         },
         submitHandler: function(form){
             $(".participante").each(function() {
                 var id_persona = $(this).val();
-                var dataString = 'fecha='+$('#fecha').val()+'&id_curso='+$('#id_curso').val()+'&id_persona='+id_persona+'&metodo=cargarPlanificacionCurso&tipo=1';  		
+                var dataString = 'id_curso='+$('#id_curso').val()+'&id_persona='+id_persona+'&metodo=cargarParticipantesCurso&tipo=1';  		
                 $.ajax({
                     type: "POST",
                     url: "../vistas/guardar.php",
@@ -467,7 +501,7 @@ jQuery(document).ready(function ($){
         submitHandler: function(form){
             $(".participante").each(function() {
                 var id_persona = $(this).val();
-                var dataString = 'fecha='+$('#fecha').val()+'&id_curso='+$('#id_curso').val()+'&id_persona='+id_persona+'&metodo=cargarPlanificacionCurso&tipo=1';;         		
+                var dataString = 'id_prog_curso='+$('#id_prog_curso').val()+'&id_persona='+id_persona+'&metodo=cargarParticipantesCurso&tipo=1';        		
                 $.ajax({
                     type: "POST",
                     url: "../vistas/guardar.php",
@@ -481,41 +515,6 @@ jQuery(document).ready(function ($){
             });
         }
     });
-    
-    //Función para ventana de confirmación antes de eliminar registros
-    
-    var confirmation = $('#modal-confirmation').dialog({
-        dialogClass:'delete_confirmation_dialog',
-        autoOpen: false,
-        width:400,
-        minHeight:200,
-        modal: true,
-        resizable: false,
-        buttons: {
-            'Si': function() {
-                var dataString = 'id='+$('#id').val()+'&metodo=eliminarEvaluacion';
-                $.ajax({
-                    type: "POST",
-                    url: "../vistas/eliminar.php",
-                    data: dataString,
-                    success: function(responseText){
-                        $("#resultado").html(responseText);
-                        $("#resultado").show();
-                        $("#table").hide();
-                    }
-                });  
-                $(this).dialog("close");
-            },
-            'No': function() {
-                $(this).dialog("close");
-            },
-        },
-        create:function () {
-            $(this).closest(".ui-dialog")
-                    .find(".ui-button:eq(1)") // the second button
-                    .addClass("continue");
-        }
-    }); 
     
     $('.btn-delete-plan-curso').on('click',function(e){
         e.preventDefault();
@@ -549,15 +548,24 @@ jQuery(document).ready(function ($){
         });
     });
     
-    $('.btn-detalle-curso').on('click',function(e){
+    $('.btn-borrar-participante').on('click',function(e){
         e.preventDefault();
         var form = $(this).parents('form');
         var id = $(this).attr('id');
-         //function(isConfirm){
-            //if (isConfirm)   {              
+        swal({
+            title: "¡Atención! La persona seleccionada será eliminada de la lista de inscritos ¿Desea continuar?",
+            text: "",
+            type: "warning",
+            confirmButtonColor: "#337ab7",
+            confirmButtonText: "Si",
+            showCancelButton: true,
+            cancelButtonText: "No",
+            closeOnConfirm: false
+        }, function(isConfirm){
+            if (isConfirm)   {              
                 $.ajax({
-                    data:  'id='+id,
-                    url:   "../vistas/formDetallesCurso.php",
+                    data:  'id='+id+'&metodo=eliminarParticipante',
+                    url:   "../vistas/eliminar.php",
                     type:  'POST',
                     beforeSend: function () {
                         $("#resultado").html('<img src="../images/ajax-loader.gif"></img> Procesando, por favor espere un momento...');
@@ -568,8 +576,29 @@ jQuery(document).ready(function ($){
                         $("#resultado").html(response);}, 500);*/
                     }
                 });
-            //}
-        //});
+            }
+        });
+    });
+    
+    $('.btn-detalle-curso').on('click',function(e){
+        e.preventDefault();
+        var form = $(this).parents('form');
+        var id = $(this).attr('id');
+        //function(isConfirm){
+        //if (isConfirm)   {              
+        $.ajax({
+            data:  'id='+id,
+            url:   "../vistas/formDetallesCurso.php",
+            type:  'POST',
+            beforeSend: function () {
+                $("#resultado").html('<img src="../images/ajax-loader.gif"></img> Procesando, por favor espere un momento...');
+            },
+            success:  function (response) {
+                $("#resultado").html(response);
+                /*setTimeout(function() {
+                        $("#resultado").html(response);}, 500);*/
+            }
+        });
     });    
     
     $('.btn-delete-evaluacion').on('click',function(e){
@@ -602,7 +631,34 @@ jQuery(document).ready(function ($){
                 });
             }
         });
-    });
+    });  
+    
+    //Activar Selects Fecha_ingreso & Cargo en formulario Personas
+    $("#estatus").on("change", function() {
+        var valor = $("#estatus").val();
+        if (valor === "2" || valor === true) {
+            $("#cargoBox").show();
+            $("#fechaIngresoBox").show();
+            $("#cargo").attr('disabled', false);
+            $("#fecha_ingreso").attr('disabled', false);
+        } else if (valor === "1" || valor === false) {
+        // deshabilitamos
+            $("#cargoBox").hide();
+            $("#fechaIngresoBox").hide();
+            $("#cargo").attr('disabled', true);
+            $("#fecha_ingreso").attr('disabled', true);
+            $("#cargo").val("");
+            $("#fecha_ingreso").val("");
+        } else if (valor === "3" || valor === false) {
+        // deshabilitamos
+            $("#cargoBox").hide();
+            $("#fechaIngresoBox").hide();
+            $("#cargo").attr('disabled', true);
+            $("#fecha_ingreso").attr('disabled', true);
+            $("#cargo").val("");
+            $("#fecha_ingreso").val("");
+        }
+    });    
     
     //***BOTONES
     
@@ -620,11 +676,45 @@ jQuery(document).ready(function ($){
         $("#table").hide();
         $("#detalles-persona").show();
     });
-    //boton cancelar formulario formEdit
+    
+    //boton cancelar 
     $("#cancelar").click(function(){
-        $("#formEditarPersona")[0].reset();
-        $("#exportar").hide();
-        $("#formEditarPersona").hide();
+        if ( $("#formEditarPersona").length > 0 ) {
+            $("#formEditarPersona")[0].reset();
+        }
+        if ( $("#exportar").length > 0 ) {
+            $("#exportar").hide();
+        }
+        if ( $("#formEditarPersona").length > 0 ) {
+            $("#formEditarPersona").hide();
+        } 
+        if ( $("#tabla-persona").length > 0 ) {
+            $("#tabla-persona").show();
+        }
+        if ($("#formEvaluacion").length > 0){
+            $("#formEvaluacion").hide();
+        }
+        if ($("#editCurso").length > 0){
+            $("#editCurso").hide();
+        }  
+        if ($("#table-cursos").length > 0){
+            $("#table-cursos").show();
+        } 
+        if ($("#resultado").length > 0){
+            $("#resultado").empty();
+        }     
+        if ($("#editUser").length > 0){
+            $("#editUser").hide();
+        } 
+        if ($("#table-user").length > 0){
+            $("#table-user").show();
+        }   
+        if ($("#formEditarEvaluacion").length > 0){
+            $("#formEditarEvaluacion").hide();
+        } 
+        if ($("#mensaje").length > 0){
+            $("#mensaje").show();
+        }         
     });
     
     //-- EVALUACIONES
@@ -635,17 +725,6 @@ jQuery(document).ready(function ($){
         $("#table").hide();
         $("#exportar").hide();
         $("#editar-evaluacion").show();
-    });
-    
-    //boton cancelar formulario #formEvaluacion
-    $("#cancelar_form_evaluacion").click(function(){
-        $("#formEvaluacion").hide();
-    });   
-    
-    //Boton eliminar evaluacion
-    $('#eliminar').click(function(){
-        confirmation.dialog('open');
-        return false;
     });
     
     // DATEPICKET JQUERY UI
@@ -670,6 +749,16 @@ jQuery(document).ready(function ($){
             changeYear: true,
             dateFormat: "dd-mm-yy"
         }); 
+        $( "#fecha_ingreso" ).datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "dd-mm-yy"
+        });     
+        $( "#fechaIngresoEditar" ).datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "dd-mm-yy"
+        }); 
     });
     
     // ESTABLECER PLACEHOLDER/MASK INPUTS FECHA - TELEFONO
@@ -680,6 +769,8 @@ jQuery(document).ready(function ($){
     $('#fechaCurso').mask("99-99-9999", {placeholder: 'dd-mm-aaaa' });
     
     $('#fechaCursoPlan').mask("99-99-9999", {placeholder: 'dd-mm-aaaa' });
+    
+    $('#fecha_ingreso').mask("99-99-9999", {placeholder: 'dd-mm-aaaa' });
     
     // VALIDACIONES EN VIVO 
     $('#cedula').focusout(function(){
@@ -818,18 +909,6 @@ jQuery(document).ready(function ($){
     });  
     
 }); //FIN JQUERY DOM
-
-//Funciones para botones cancelar
-function cancelar(id_1,id_2){
-    $(id_1).hide();
-    $("#resultado").empty();
-    $(id_2).show();
-}
-
-function cancelar_2(id_1,id_2){
-    $(id_1).hide();
-    $(id_2).show();
-}
 
 //Función para enviar dados vía AJAX
 function enviarDatos(variable,metodo,tipo){
@@ -991,6 +1070,25 @@ function enviarDatos(variable,metodo,tipo){
                 }
             });            
             break;
+        case 8: //Editar personas
+            $("#tabla-persona").hide();
+            $("#editar-persona").show();
+            var parametros = {
+                "cedula" : variable
+            };
+            $.ajax({
+                data:  parametros,
+                url:   metodo,
+                type:  'POST',
+                beforeSend: function () {
+                    $("#editar-persona").html('<img src="../images/ajax-loader.gif"></img> Procesando, por favor espere un momento...');
+                },
+                success:  function (response) {
+                    setTimeout(function() {
+                        $("#editar-persona").html(response);}, 500);
+                }
+            });            
+            break;                
     }
 }
 
@@ -1028,64 +1126,6 @@ function editarUsuario(metodo){
     }    
 }
 
-function enviar(nombres,apellidos,cedula,telefono,correo,direccion){
-    // Comprobamos que está disponible AJAX
-    if(window.XMLHttpRequest) {
-        ajax = new XMLHttpRequest()
-    }
-    ajax.open("POST","mostrarPersona.php",true)
-    // La respuesta aparecerá en una alerta
-    ajax.onreadystatechange=function(){
-        if(ajax.readyState == 4) {
-            alert(ajax.responseText)
-        }
-    }
-    ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
-    ajax.send("&nombres=" + nombres + "&apellidos=" + apellidos + "&cedula=" + cedula + "&telefono=" + telefono + "&correo=" +correo+"&direccion="+direccion)
-}
-
-//Función para combos dependientes
-var peticion = false;
-var  testPasado = false;
-try {
-    peticion = new XMLHttpRequest();
-} catch (trymicrosoft) {
-    try {
-        peticion = new ActiveXObject("Msxml2.XMLHTTP");
-    } catch (othermicrosoft) {
-        try {
-            peticion = new ActiveXObject("Microsoft.XMLHTTP");
-        } catch (failed) {
-            peticion = false;
-        } 
-    }
-}
-if (!peticion)
-    alert("ERROR AL INICIALIZAR!");
-
-function cargarCombo (url, comboAnterior, element_id) { 
-    //Obtenemos el contenido del div
-    //donde se cargaran los resultados
-    var element =  document.getElementById(element_id);
-    //Obtenemos el valor seleccionado del combo anterior
-    var valordepende = document.getElementById(comboAnterior)
-    var x = valordepende.value
-    //construimos la url definitiva
-    //pasando como parametro el valor seleccionado
-    var fragment_url = url+'?id='+x;
-    element.innerHTML = '<style ><img src="../Images/ajax.gif" />'; 	
-    
-    //abrimos la url
-    peticion.open("GET", fragment_url); 
-    peticion.onreadystatechange = function() { 
-        if (peticion.readyState == 4) {
-            //escribimos la respuesta
-            element.innerHTML = peticion.responseText;
-        } 
-    } 
-    peticion.send(null); 
-} 
-
 //FUNCIONES PARA EXPORTAR REGISTROS
 
 function ExportToPdf(){
@@ -1099,8 +1139,7 @@ function ExportToExcel(){
     var cedula= document.getElementById('cedula').value;
     window.location.href = '../vistas/reporteExcel.php?cedula='+cedula; 
 }
-function ExportCursoToExcel(){
-    var id = document.getElementById('id').value;
+function ExportCursoToExcel(id){
     window.location.href = '../vistas/reporteCursoExcel.php?id='+id; 
 }
 function Imprimir(){

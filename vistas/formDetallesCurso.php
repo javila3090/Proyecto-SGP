@@ -16,7 +16,7 @@
     foreach ($resultado as $valor) {
         $curso -> nombre=$valor['nombre'];
         $curso -> duracion =$valor['duracion'];
-        $curso ->setFecha($valor['fecha']);
+        $curso -> setFecha($valor['fecha']);
     }
 ?>
 <html>
@@ -71,24 +71,37 @@
                         </div>
                         <div class="panel-body"> 
                         <?php
-                            $i=0;
-                            $persona = new Persona();
-                            foreach ($resultado as $valor2) {
-                                $persona->nombres=$valor2['nombres']." ".$valor2['apellidos'];
+                        $i=0;
+                        $persona = new Persona();
+                        foreach ($resultado as $valor2) {
+                            $persona -> nombres = $valor2['nombres']." ".$valor2['apellidos'];
                             $i++;
+                            if(!empty($valor2['nombres'])){
                         ?>
                             <fieldset class="form-group">
                                 <div class="col-md-5">
                                     <span><b><?php echo $i.". ".$persona->nombres;?></b></span>
-                                    
+                                        
                                 </div>
                             </fieldset>
                         <?php
-                            }               
+                            }else{
+                        ?>
+                            <fieldset class="form-group">
+                                <div class="col-md-5">
+                                    <span><b>No hay participantes inscritos en este curso a&uacute;n</b></span>                                        
+                                </div>
+                            </fieldset>
+                        <?php
+                           }
+                        }               
                         ?> 
                         </div>
                     </div> 
                 </form>
+                <div class="col-md-4 col-md-offset-4">
+                    <button type="button" id="cancelar" class="btn btn-primary btn-block">Regresar</button>
+                </div>
             </div>
         </div>
     </body>

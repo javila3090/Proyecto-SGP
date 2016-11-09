@@ -29,6 +29,8 @@ class MysqlAccess extends Conexion{
             $resultado = $this->mysqli->query($sql);
             if($resultado){
                 $resultado="ok";
+                $log = new myLog($metodo);
+                $log->add($sql);
             }else{
                 $resultado="no";
                 $log = new myLog($metodo);
@@ -48,9 +50,9 @@ class MysqlAccess extends Conexion{
             if($resultado){
                 $resultado="ok";
             }else{
-                  $log = new myLog($metodo);
-                  $log->add($this->mysqli->error);
-                  $resultado="no";
+                $log = new myLog($metodo);
+                $log->add($this->mysqli->error);
+                $resultado="no";
             }
             $this->Cerrar();
             return $resultado;

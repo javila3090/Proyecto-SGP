@@ -7,6 +7,7 @@
 class Curso {
     
     private $id;
+    private $id_curso;
     private $nombre;
     private $duracion;
     private $participantes;

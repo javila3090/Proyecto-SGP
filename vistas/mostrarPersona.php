@@ -5,8 +5,8 @@
      * @author Ing. Julio Avila
      */
 
-    require("../controlador/MainController.php");
-    require("../modelo/Persona.php");
+    require_once("../controlador/MainController.php");
+    require_once("../modelo/Persona.php");
     $consultar = new MainController();
     $cedula=$_POST['cedula'];
     $resultado = $consultar ->consultaPersonas($cedula);
@@ -45,15 +45,15 @@
             $persona -> nombres = $valor['nombres'];
             $persona -> apellidos = $valor['apellidos'];
             $persona -> cedula = $valor['cedula'];
-            $persona ->setFechaNacimiento($valor['fnacimiento']);
+            $persona -> setFechaNacimiento($valor['fnacimiento']);
             $persona -> correo = $valor['correo'];
             $persona -> telefono = $valor['telefono'];
             $persona -> direccion = $valor['direccion'];
-            $persona ->setTipoSangre($valor['grupo_sangre']);
-            $persona ->setEstadoCivil($valor['estado_civil']);
-            $persona ->setGenero($valor['genero']);
-            $persona ->setEstatus($valor['id_estatus']);
-            $persona ->setNivelAcademico($valor['nivel_academico']);
+            $persona -> setTipoSangre($valor['grupo_sangre']);
+            $persona -> setEstadoCivil($valor['estado_civil']);
+            $persona -> setGenero($valor['genero']);
+            $persona -> setEstatus($valor['id_estatus']);
+            $persona -> setNivelAcademico($valor['nivel_academico']);
             $persona -> hijos = $valor['hijos'];
     ?>
     <div class="col-md-12">

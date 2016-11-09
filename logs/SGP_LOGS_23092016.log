@@ -1,0 +1,11 @@
+23-09-2016 11:24:08 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-30',7);
+23-09-2016 11:24:38 cargarParticipantesCurso - INSERT INTO participantes_cursos     (id_prog_curso,id_persona) VALUES ('3',7);
+23-09-2016 03:32:23 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-05',7);
+23-09-2016 03:35:11 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-29',10);
+23-09-2016 03:46:27 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-28',15);
+23-09-2016 03:46:37 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-10-03',15);
+23-09-2016 03:46:43 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-01',3);
+23-09-2016 03:52:26 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-10-05',7);
+23-09-2016 03:52:54 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-24',9);
+23-09-2016 10:21:12 cargarEvaluacion - INSERT INTO evaluaciones (id_persona,prueba_tecnica,prueba_psico,observaciones_psico,documentos,comentarios) VALUES (1,'1','1','Apto','1','Aprobado');
+23-09-2016 10:24:05 cargarPersonas - INSERT INTO personas (nombres,apellidos,cedula,fnacimiento,telefono,correo,direccion,genero,estado_civil,hijos,grupo_sangre,nivel_academico,id_estatus) VALUES ('Jesus','Carpio',19871234,'1990-12-28','0424-3654181','jesus@gmail.com','La ciudad perdida','M','1','0','2','3','1');

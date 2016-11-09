@@ -8,7 +8,7 @@
     include ("../seguridad/seguridad.php");
     $template = $_GET['template'];
 ?>
-
+    
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="es">
     <head>
@@ -28,14 +28,10 @@
         <script src="../js/sweetalert.min.js" type="text/javascript"></script>    
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="row">   
-                <div class="col-md-12">
-                <?php
-                    include("../utilidades/menu.php");
-                ?>
-                </div>
-            </div>    
+        <?php
+            include("../utilidades/menu.php");
+        ?>
+        <div class="container-fluid">   
             <div class="row">
             <?php 
             switch ($template){
@@ -50,15 +46,18 @@
                 break; 
                 case 'usuarios':
                    include 'formUsuario.php';
-                break;            
+                break; 
+                case 'cargos':
+                   include 'formCargo.php';
+                break; 
             }
             ?>
             </div>
         </div>
-        <footer>
-            <div class="panel-footer">
+    <footer>
+        <div class="panel-footer">
             <?php include "../utilidades/footer.php"; ?>
-            </div>
-        </footer>
-    </body>
+        </div>
+    </footer>
+</body>
 </html>

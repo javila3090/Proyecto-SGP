@@ -167,11 +167,11 @@ if($resultado==0){
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <fieldset class="form-group">
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-xs-6">
                                     <button type="submit" class="btn btn-primary btn-block"><b>Registrar</b></button>
                                 </div>
-                                <div class="col-md-6">
-                                    <button type="button" id="cancelar_form_evaluacion" class="btn btn-primary btn-block"><b>Cancelar</b></button>
+                                <div class="col-md-6 col-xs-6">
+                                    <button type="button" id="cancelar" class="btn btn-danger btn-block">Cancelar</button>
                                 </div>
                             </fieldset>
                         </div>

@@ -42,7 +42,7 @@
             <form class="col-md-12" id="formEditarCurso" method="" role="registro" >
                 <div class="panel panel-default panel-collapse">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><b>Datos del curso</b></h3>
+                        <h3 class="panel-title"><b>Modificar datos del curso</b></h3>
                     </div>
                     <div class="panel-body"> 
                         <fieldset class="form-group">
@@ -61,11 +61,11 @@
                     </div>
                 </div>  
                 <fieldset class="form-group col-md-4 col-md-offset-4">
-                    <div class="col-md-5">
+                    <div class="col-md-5 col-xs-6">
                         <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
                     </div>
-                    <div class="col-md-5">
-                        <button type="button" id="" onclick="cancelar('#editCurso','#table-cursos');" class="btn btn-primary btn-block">Cancelar</button>
+                    <div class="col-md-5 col-xs-6">
+                        <button type="button" id="cancelar" class="btn btn-danger btn-block">Cancelar</button>
                     </div>
                 </fieldset>                
             </form>

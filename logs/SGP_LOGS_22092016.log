@@ -1,0 +1,22 @@
+22-09-2016 12:18:32 cargarCurso - Cannot add or update a child row: a foreign key constraint fails (`reclutamiento_y_gestion`.`programacion_cursos`, CONSTRAINT `programacion_cursos_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+22-09-2016 12:30:22 cargarCurso - Cannot add or update a child row: a foreign key constraint fails (`reclutamiento_y_gestion`.`programacion_cursos`, CONSTRAINT `programacion_cursos_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+22-09-2016 01:51:23 cargarCurso - INSERT INTO programacion_cursos (fecha,id_curso,id_persona) VALUES ('2016-09-30',6,7);
+22-09-2016 02:25:13 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-28',3);
+22-09-2016 03:49:30 consultaPlanCursos - No data supplied for parameters in prepared statement
+22-09-2016 04:05:18 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-28',3);
+22-09-2016 04:13:53 cargarCurso - INSERT INTO cursos (nombre,duracion,estatus) VALUES ('Prueba',12,1);
+22-09-2016 04:14:34 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-30',6);
+22-09-2016 08:52:14 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-28',3);
+22-09-2016 09:37:36 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-28',3);
+22-09-2016 09:37:52 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-28',3);
+22-09-2016 09:58:59 cargarPlanificacionCurso - Unknown column 'id_curso' in 'field list'
+22-09-2016 09:59:53 cargarPlanificacionCurso - INSERT INTO participantes_cursos (id_prog_curso,id_persona) VALUES ('3',1);
+22-09-2016 10:06:00 cargarPlanificacionCurso - INSERT INTO participantes_cursos (id_prog_curso,id_persona) VALUES ('',7);
+22-09-2016 10:08:20 cargarPlanificacionCurso - INSERT INTO participantes_cursos (id_prog_curso,id_persona) VALUES ('',7);
+22-09-2016 10:11:31 cargarPlanificacionCurso - INSERT INTO participantes_cursos (id_prog_curso,id_persona) VALUES ('',1);
+22-09-2016 10:13:54 cargarParticipantesCurso - Table 'reclutamiento_y_gestion.participantes_curso' doesn't exist
+22-09-2016 10:14:34 cargarParticipantesCurso - INSERT INTO participantes_cursos (id_prog_curso,id_persona) VALUES ('4',1);
+22-09-2016 10:17:39 cargarParticipantesCurso - INSERT INTO participantes_cursos (id_prog_curso,id_persona) VALUES ('4',7);
+22-09-2016 10:18:08 cargarPlanificacionCurso - INSERT INTO programacion_cursos (fecha,id_curso) VALUES ('2016-09-30',9);
+22-09-2016 10:36:59 cargarParticipantesCurso - INSERT INTO participantes_cursos     (id_prog_curso,id_persona) VALUES ('4',7);
+22-09-2016 10:47:51 cargarParticipantesCurso - INSERT INTO participantes_cursos     (id_prog_curso,id_persona) VALUES ('4',1);
